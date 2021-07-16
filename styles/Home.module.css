@@ -3,8 +3,19 @@
   margin: 0 auto;
   /* border: 1px solid grey; */
   text-align: center;
+  padding: 30px;
 }
 
 .mainTemp {
   font-size: 84px;
+}
+
+.search {
+  margin-top: 300px;
+  height: 30px;
+  width: 200px;
+  border-radius: 10px;
+  border: none;
+  color: rgb(224, 237, 241);
+  padding: 0 10px;
 }

@@ -19,11 +19,13 @@ export default function Home() {
 
   return (
     <div className={styles.wrapper}>
-      <h1>My weather app {input}</h1>
-      <input type="text" onChange={(e) => setInput(e.target.value)} />
-      <button onClick={clickHandler}>Send</button>
+      {/* <h1>My weather app {input}</h1> */}
+
       {weatherData && (
         <>
+          <h1>
+            {weatherData.name}, {weatherData.sys.country}
+          </h1>
           <p>{weatherData.weather[0].description}</p>
           <Image
             alt="weatherIcon"
@@ -32,13 +34,17 @@ export default function Home() {
             width="300px"
           />
 
-          <p>
-            {weatherData.name}, {weatherData.sys.country}
-          </p>
           <h1 className={styles.mainTemp}>
             {Math.round(weatherData.main.temp)}°
           </h1>
           <p>Feels like {weatherData.main.feels_like}°</p>
+          <input
+            className={styles.search}
+            defaultValue="Search city"
+            type="text"
+            onChange={(e) => setInput(e.target.value)}
+          />
+          <button onClick={clickHandler}>Send</button>
         </>
       )}
     </div>
