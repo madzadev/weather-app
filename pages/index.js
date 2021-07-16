@@ -24,9 +24,10 @@ export default function Home() {
       <button onClick={clickHandler}>Send</button>
       {weatherData && (
         <>
+          <p>{weatherData.weather[0].description}</p>
           <Image
             alt="weatherIcon"
-            src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
+            src={`/icons/002-sunny.svg`}
             height="300px"
             width="300px"
           />
@@ -43,10 +44,3 @@ export default function Home() {
     </div>
   );
 }
-
-// export const getServerSideProps = async () => {
-//   const res = async fetch()
-//   console.log(process.env.OPENWEATHER_API_KEY);
-
-//   return { props: {} };
-// };
