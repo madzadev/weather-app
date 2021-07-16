@@ -16,6 +16,7 @@ export default function Home() {
     setWeatherData({ ...data });
     console.log(data);
   };
+
   return (
     <div className={styles.wrapper}>
       <h1>My weather app {input}</h1>
@@ -23,9 +24,16 @@ export default function Home() {
       <button onClick={clickHandler}>Send</button>
       {weatherData && (
         <>
-          <h1>
+          <Image
+            alt="weatherIcon"
+            src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
+            height="300px"
+            width="300px"
+          />
+
+          <p>
             {weatherData.name}, {weatherData.sys.country}
-          </h1>
+          </p>
           <h1 className={styles.mainTemp}>
             {Math.round(weatherData.main.temp)}°
           </h1>
