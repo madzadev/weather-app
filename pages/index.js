@@ -29,7 +29,7 @@ export default function Home() {
           <p>{weatherData.weather[0].description}</p>
           <Image
             alt="weatherIcon"
-            src={`/icons/002-sunny.svg`}
+            src={`/icons/${weatherData.weather[0].icon}.svg`}
             height="300px"
             width="300px"
           />
