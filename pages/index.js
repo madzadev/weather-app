@@ -38,15 +38,16 @@ export default function Home() {
             {Math.round(weatherData.main.temp)}°
           </h1>
           <p>Feels like {weatherData.main.feels_like}°</p>
-          <input
-            className={styles.search}
-            defaultValue="Search city"
-            type="text"
-            onChange={(e) => setInput(e.target.value)}
-          />
-          <button onClick={clickHandler}>Send</button>
         </>
       )}
+      <input
+        className={styles.search}
+        defaultValue="Search city"
+        type="text"
+        onFocus={(e) => (e.target.value = "")}
+        onChange={(e) => setInput(e.target.value)}
+      />
+      <button onClick={clickHandler}>Search</button>
     </div>
   );
 }
