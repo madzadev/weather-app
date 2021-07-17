@@ -13,6 +13,7 @@ export default function Home() {
       body: JSON.stringify({ input }),
     });
     const data = await res.json();
+    console.log(data);
     setWeatherData({ ...data });
     setInput("");
   };
@@ -25,14 +26,14 @@ export default function Home() {
 
   return (
     <div className={styles.wrapper}>
-      {/* <h1>My weather app {input}</h1> */}
-
       {weatherData && (
         <>
-          <h1>
+          <h1 className={styles.locationTitle}>
             {weatherData.name}, {weatherData.sys.country}
           </h1>
-          <p>{weatherData.weather[0].description}</p>
+          <p className={styles.weatherDescription}>
+            {weatherData.weather[0].description}
+          </p>
           <Image
             alt="weatherIcon"
             src={`/icons/${weatherData.weather[0].icon}.svg`}
@@ -44,20 +45,19 @@ export default function Home() {
             {Math.round(weatherData.main.temp)}°
           </h1>
           <p>Feels like {Math.round(weatherData.main.feels_like)}°</p>
+          <p>Humidity: {weatherData.main.humidity}</p>
+          <p>Wind: {weatherData.wind.speed}</p>
         </>
       )}
       <input
         type="text"
         className={styles.searchInput}
-        defaultValue="Search a city"
+        defaultValue="Search a cities..."
         value={input}
         onFocus={(e) => (e.target.value = "")}
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={(e) => something(e)}
       />
-      <button className={styles.searchBtn} onClick={clickHandler}>
-        Search
-      </button>
     </div>
   );
 }

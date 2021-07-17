@@ -1,7 +1,6 @@
 .wrapper {
-  max-width: 800px;
+  max-width: 600px;
   margin: 30px auto;
-  /* border: 1px solid grey; */
   text-align: center;
   padding: 30px;
   background: rgba(255, 255, 255, 0.25);
@@ -12,28 +11,27 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+.locationTitle {
+  font-size: 38px;
+  margin-bottom: 20px;
+}
+
+.weatherDescription {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
 .mainTemp {
   font-size: 84px;
 }
 
 .searchInput {
-  margin-top: 300px;
+  margin-top: 200px;
   height: 40px;
   width: 300px;
-  border-radius: 5px;
-  border: 2px solid rgb(80, 80, 80);
-
-  background-color: #d3ddea;
+  border: none;
   padding: 0 10px;
   color: #242424;
   font-size: 20px;
-}
-
-.searchBtn {
-  background-color: limegreen;
-  width: 100px;
-  height: 40px;
-  border-radius: 5px;
-  font-size: 20px;
-  padding: 0 10px;
+  background: rgba(255, 255, 255, 0.25);
 }
