@@ -1,9 +1,15 @@
 .wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 800px;
+  margin: 30px auto;
   /* border: 1px solid grey; */
   text-align: center;
   padding: 30px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(83, 89, 179, 0.37);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .mainTemp {
@@ -14,7 +20,7 @@
   margin-top: 300px;
   height: 40px;
   width: 300px;
-  border-radius: 5px;
+  border-radius: 25px;
   border: 1px solid rgb(209, 209, 252);
 
   color: rgb(224, 237, 241);

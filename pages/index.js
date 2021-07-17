@@ -37,7 +37,7 @@ export default function Home() {
           <h1 className={styles.mainTemp}>
             {Math.round(weatherData.main.temp)}°
           </h1>
-          <p>Feels like {weatherData.main.feels_like}°</p>
+          <p>Feels like {Math.round(weatherData.main.feels_like)}°</p>
         </>
       )}
       <input
