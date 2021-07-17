@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
 
@@ -14,7 +14,13 @@ export default function Home() {
     });
     const data = await res.json();
     setWeatherData({ ...data });
-    console.log(data);
+    setInput("");
+  };
+
+  const something = (event) => {
+    if (event.keyCode === 13) {
+      clickHandler();
+    }
   };
 
   return (
@@ -41,13 +47,17 @@ export default function Home() {
         </>
       )}
       <input
-        className={styles.search}
-        defaultValue="Search city"
         type="text"
+        className={styles.searchInput}
+        defaultValue="Search a city"
+        value={input}
         onFocus={(e) => (e.target.value = "")}
         onChange={(e) => setInput(e.target.value)}
+        onKeyDown={(e) => something(e)}
       />
-      <button onClick={clickHandler}>Search</button>
+      <button className={styles.searchBtn} onClick={clickHandler}>
+        Search
+      </button>
     </div>
   );
 }
