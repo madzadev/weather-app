@@ -65,12 +65,11 @@ export default function Home() {
           />
 
           <h1 className={styles.mainTemp}>
-            {Math.round(weatherData.main.temp)}°C
+            {Math.round(weatherData.main.temp)}°
           </h1>
-          <p>Feels like {Math.round(weatherData.main.feels_like)}°C</p>
+          <p>Feels like {Math.round(weatherData.main.feels_like)}°</p>
 
           <p>
-            Time:{" "}
             {new Date(
               weatherData.dt * 1000 + weatherData.timezone * 1000
             ).toLocaleString("en-US")}
@@ -175,7 +174,14 @@ export default function Home() {
                   width="100px"
                 />
                 <div>
-                  <h1>4:31</h1>
+                  <h1>
+                    {" "}
+                    {new Date(weatherData.sys.sunrise * 1000).getHours()}:
+                    {(new Date(weatherData.sys.sunrise * 1000).getMinutes() < 10
+                      ? "0"
+                      : "") +
+                      new Date(weatherData.sys.sunrise * 1000).getMinutes()}
+                  </h1>
                   <p>AM</p>
                 </div>
               </div>
@@ -203,7 +209,13 @@ export default function Home() {
                   width="100px"
                 />
                 <div>
-                  <h1>10:02</h1>
+                  <h1>
+                    {new Date(weatherData.sys.sunset * 1000).getHours()}:
+                    {(new Date(weatherData.sys.sunset * 1000).getMinutes() < 10
+                      ? "0"
+                      : "") +
+                      new Date(weatherData.sys.sunset * 1000).getMinutes()}
+                  </h1>
                   <p>PM</p>
                 </div>
               </div>
