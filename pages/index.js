@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.css";
 import Image from "next/image";
 
 export default function Home() {
-  const [input, setInput] = useState();
+  const [input, setInput] = useState("mumbai");
   const [weatherData, setWeatherData] = useState();
 
   const clickHandler = async () => {
@@ -79,10 +79,10 @@ export default function Home() {
           </h1>
           <p>Feels like {Math.round(weatherData.main.feels_like)}°</p>
 
-          <h3>
+          {/* <h2>
             {convertTime(weatherData.dt, weatherData.timezone)[0].split(":")[0]}
             :00
-          </h3>
+          </h2> */}
         </div>
       )}
       <div className={styles.statsWrapper}>
