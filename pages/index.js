@@ -94,11 +94,6 @@ export default function Home() {
         />
         {weatherData && (
           <div className={styles.statsBox}>
-            <div className={styles.statsCard}>Stats card1</div>
-            <div className={styles.statsCard}>Stats card2</div>
-            <div className={styles.statsCard}>
-              Visibility: {weatherData.visibility / 1000} km
-            </div>
             <div className={styles.statsCard}>
               <p>Humidity</p>
               <div className={styles.statsCardContent}>
@@ -114,7 +109,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
             <div className={styles.statsCard}>
               <p>Wind speed</p>
               <div className={styles.statsCardContent}>
@@ -130,6 +124,39 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            <div className={styles.statsCard}>
+              <p>Wind direction</p>
+              <div className={styles.statsCardContent}>
+                <Image
+                  alt="weatherIcon"
+                  src={`/icons/014-compass.png`}
+                  height="100px"
+                  width="100px"
+                />
+                <div>
+                  <h1>{degToCompass(weatherData.wind.deg)}</h1>
+                </div>
+              </div>
+            </div>
+            <div className={styles.statsCard}>
+              <p>Visibility</p>
+              <div className={styles.statsCardContent}>
+                <Image
+                  alt="weatherIcon"
+                  src={`/icons/binocular.png`}
+                  height="100px"
+                  width="100px"
+                />
+                <div>
+                  <h1>{weatherData.visibility / 1000}</h1>
+                  <p>Km</p>
+                </div>
+              </div>
+            </div>
+            {/* <div className={styles.statsCard}>
+              Visibility: {weatherData.visibility / 1000} km
+            </div> */}
+
             {/* <div className={styles.statsCard}>
               <p>
                 Wind:{" "}
