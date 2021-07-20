@@ -60,6 +60,16 @@ export default function Home() {
     console.log("system changed");
   };
 
+  var weekday = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
   // console.log(convertTime(weatherData.dt, weatherData.timezone));
 
   return (
@@ -88,11 +98,24 @@ export default function Home() {
       )}
       <div className={styles.statsWrapper}>
         <div className={styles.titleAndSearch}>
-          <h2 style={{ textAlign: "left" }}>
-            Today at:{" "}
-            {convertTime(weatherData.dt, weatherData.timezone)[0].split(":")[0]}
-            :00
-          </h2>
+          {weatherData && (
+            <h2 style={{ textAlign: "left" }}>
+              {
+                weekday[
+                  new Date(
+                    convertTime(weatherData.dt, weatherData.timezone).input
+                  ).getUTCDay()
+                ]
+              }
+              ,{" "}
+              {
+                convertTime(weatherData.dt, weatherData.timezone)[0].split(
+                  ":"
+                )[0]
+              }
+              :00
+            </h2>
+          )}
           <input
             type="text"
             className={styles.searchInput}
