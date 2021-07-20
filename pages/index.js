@@ -47,6 +47,20 @@ export default function Home() {
     return arr[val % 16];
   }
 
+  const convertTime = (unixSeconds, timezone) => {
+    const time = new Date((unixSeconds + timezone) * 1000)
+      .toISOString()
+      .match(/(\d{2}:\d{2})/);
+
+    return time;
+  };
+
+  // console.log(
+  //   new Date(weatherData.dt * 1000).toISOString().match(/(\d{2}:\d{2}:\d{2})/)
+  // );
+
+  console.log(convertTime(weatherData.dt, weatherData.timezone));
+
   return (
     <div className={styles.wrapper}>
       {weatherData && (
@@ -113,7 +127,7 @@ export default function Home() {
                 />
                 <div>
                   <h1>{weatherData.wind.speed}</h1>
-                  <p>Km/h</p>
+                  <p>m/s</p>
                 </div>
               </div>
             </div>
@@ -142,7 +156,7 @@ export default function Home() {
                 />
                 <div>
                   <h1>{weatherData.visibility / 1000}</h1>
-                  <p>Km</p>
+                  <p>km</p>
                 </div>
               </div>
             </div>
@@ -175,12 +189,12 @@ export default function Home() {
                 />
                 <div>
                   <h1>
-                    {" "}
-                    {new Date(weatherData.sys.sunrise * 1000).getHours()}:
-                    {(new Date(weatherData.sys.sunrise * 1000).getMinutes() < 10
-                      ? "0"
-                      : "") +
-                      new Date(weatherData.sys.sunrise * 1000).getMinutes()}
+                    {
+                      convertTime(
+                        weatherData.sys.sunrise,
+                        weatherData.timezone
+                      )[0]
+                    }
                   </h1>
                   <p>AM</p>
                 </div>
@@ -210,11 +224,12 @@ export default function Home() {
                 />
                 <div>
                   <h1>
-                    {new Date(weatherData.sys.sunset * 1000).getHours()}:
-                    {(new Date(weatherData.sys.sunset * 1000).getMinutes() < 10
-                      ? "0"
-                      : "") +
-                      new Date(weatherData.sys.sunset * 1000).getMinutes()}
+                    {
+                      convertTime(
+                        weatherData.sys.sunset,
+                        weatherData.timezone
+                      )[0]
+                    }
                   </h1>
                   <p>PM</p>
                 </div>
