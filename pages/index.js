@@ -69,9 +69,9 @@ export default function Home() {
           />
 
           <h1 className={styles.mainTemp}>
-            {Math.round(weatherData.main.temp)}°
+            {Math.round(weatherData.main.temp)}°C
           </h1>
-          <p>Feels like {Math.round(weatherData.main.feels_like)}°</p>
+          <p>Feels like {Math.round(weatherData.main.feels_like)}°C</p>
 
           <p>
             Time:{" "}
@@ -86,7 +86,7 @@ export default function Home() {
           type="text"
           className={styles.searchInput}
           defaultValue={defaultValue}
-          placeholder="🔍 Search a city ..."
+          // placeholder="🔍 Search a city ..."
           value={input}
           onFocus={(e) => (e.target.value = "")}
           onChange={(e) => setInput(e.target.value)}
@@ -94,33 +94,98 @@ export default function Home() {
         />
         {weatherData && (
           <div className={styles.statsBox}>
-            <div>Stats card1</div>
-            <div>Stats card2</div>
-            <div>Visibility: {weatherData.visibility / 1000} km</div>
-            <div>
-              <p>Humidity: {weatherData.main.humidity}</p>
+            <div className={styles.statsCard}>Stats card1</div>
+            <div className={styles.statsCard}>Stats card2</div>
+            <div className={styles.statsCard}>
+              Visibility: {weatherData.visibility / 1000} km
             </div>
-            <div>
+            <div className={styles.statsCard}>
+              <p>Humidity</p>
+              <div className={styles.statsCardContent}>
+                <Image
+                  alt="weatherIcon"
+                  src={`/icons/025-humidity.png`}
+                  height="100px"
+                  width="100px"
+                />
+                <div>
+                  <h1>{weatherData.main.humidity}</h1>
+                  <p>%</p>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.statsCard}>
+              <p>Wind speed</p>
+              <div className={styles.statsCardContent}>
+                <Image
+                  alt="weatherIcon"
+                  src={`/icons/017-wind.png`}
+                  height="100px"
+                  width="100px"
+                />
+                <div>
+                  <h1>{weatherData.wind.speed}</h1>
+                  <p>Km/h</p>
+                </div>
+              </div>
+            </div>
+            {/* <div className={styles.statsCard}>
               <p>
                 Wind:{" "}
                 {` ${weatherData.wind.speed} ${degToCompass(
                   weatherData.wind.deg
                 )}`}
               </p>
-            </div>
-            <div style={{ padding: "20px", border: "1px solid grey" }}>
-              <p>
+              <Image
+                alt="weatherIcon"
+                src={`/icons/wind.png`}
+                height="100px"
+                width="100px"
+              />
+            </div> */}
+            <div className={styles.statsCard}>
+              <p>Sunrise</p>
+              <div className={styles.statsCardContent}>
+                <Image
+                  alt="weatherIcon"
+                  src={`/icons/040-sunrise.png`}
+                  height="100px"
+                  width="100px"
+                />
+                <div>
+                  <h1>4:31</h1>
+                  <p>AM</p>
+                </div>
+              </div>
+
+              {/* <p>
                 Sunrise:{" "}
                 {new Date(
                   weatherData.sys.sunrise * 1000 + weatherData.timezone * 1000
                 ).toLocaleString("en-US")}
-              </p>
-              <p>
+              </p> */}
+              {/* <p>
                 Sunset:{" "}
                 {new Date(weatherData.sys.sunset * 1000).toLocaleString(
                   "en-US"
                 )}
-              </p>
+              </p> */}
+            </div>
+            <div className={styles.statsCard}>
+              <p>Sunset</p>
+              <div className={styles.statsCardContent}>
+                <Image
+                  alt="weatherIcon"
+                  src={`/icons/041-sunset.png`}
+                  height="100px"
+                  width="100px"
+                />
+                <div>
+                  <h1>10:02</h1>
+                  <p>PM</p>
+                </div>
+              </div>
             </div>
           </div>
         )}
