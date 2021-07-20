@@ -32,11 +32,16 @@
   border-radius: 0 30px 30px 0;
 }
 
+.titleAndSearch {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
 .statsBox {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
-
   border-radius: 20px;
 }
 
@@ -58,13 +63,13 @@
 .searchInput {
   margin-bottom: 20px;
   height: 40px;
-  width: 200px;
-  border: 2px solid rgb(230, 230, 230);
+  border: 2px solid rgb(34, 34, 34);
+  /* border: none; */
   padding: 0 10px;
-  color: #c5c5c5;
+  color: #303030;
   font-size: 20px;
   text-align: right;
-  border-radius: 20px;
+  border-radius: 3px;
   font-family: "Varela Round", sans-serif;
   font-size: 18px;
 }

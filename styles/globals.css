@@ -17,6 +17,7 @@ body {
   );
   font-family: "Varela Round", sans-serif;
   min-height: 100vh;
+  padding-top: 50px;
 }
 
 a {
