@@ -55,11 +55,7 @@ export default function Home() {
     return time;
   };
 
-  // console.log(
-  //   new Date(weatherData.dt * 1000).toISOString().match(/(\d{2}:\d{2}:\d{2})/)
-  // );
-
-  console.log(convertTime(weatherData.dt, weatherData.timezone));
+  // console.log(convertTime(weatherData.dt, weatherData.timezone));
 
   return (
     <div className={styles.wrapper}>
@@ -83,11 +79,10 @@ export default function Home() {
           </h1>
           <p>Feels like {Math.round(weatherData.main.feels_like)}°</p>
 
-          <p>
-            {new Date(
-              weatherData.dt * 1000 + weatherData.timezone * 1000
-            ).toLocaleString("en-US")}
-          </p>
+          <h3>
+            {convertTime(weatherData.dt, weatherData.timezone)[0].split(":")[0]}
+            :00
+          </h3>
         </div>
       )}
       <div className={styles.statsWrapper}>
