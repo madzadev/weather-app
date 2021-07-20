@@ -1,14 +1,20 @@
 .wrapper {
-  max-width: 600px;
+  max-width: 1200px;
   margin: 30px auto;
   text-align: center;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.25);
+
+  background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 8px 32px 0 rgba(83, 89, 179, 0.37);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
-  border-radius: 10px;
+  border-radius: 30px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.weatherWrapper {
+  padding: 30px;
 }
 
 .locationTitle {
@@ -19,6 +25,19 @@
 .weatherDescription {
   font-size: 24px;
   margin-bottom: 30px;
+}
+
+.statsWrapper {
+  background-color: rgb(247, 247, 247);
+  padding: 30px;
+}
+
+.statsBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.statsCard {
 }
 
 .mainTemp {
