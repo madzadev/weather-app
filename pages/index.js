@@ -4,6 +4,7 @@ import Image from "next/image";
 
 export default function Home() {
   const [input, setInput] = useState();
+  const [defaultValue, setDefaultValue] = useState("Search a city...");
   const [isCurrentActive, setIsCurrentActive] = useState(true);
   const [weatherData, setWeatherData] = useState();
 
@@ -16,7 +17,9 @@ export default function Home() {
     const data = await res.json();
     console.log(data);
     setWeatherData({ ...data });
+
     setInput("");
+    // setDefaultValue("sss");
   };
 
   const something = (event) => {
@@ -69,43 +72,59 @@ export default function Home() {
             {Math.round(weatherData.main.temp)}°
           </h1>
           <p>Feels like {Math.round(weatherData.main.feels_like)}°</p>
-          <p>Humidity: {weatherData.main.humidity}</p>
-          <p>
-            Wind:{" "}
-            {`${weatherData.wind.speed} to ${
-              weatherData.wind.gust
-            } ${degToCompass(weatherData.wind.deg)}`}
-          </p>
+
           <p>
             Time:{" "}
             {new Date(
               weatherData.dt * 1000 + weatherData.timezone * 1000
             ).toLocaleString("en-US")}
           </p>
-          <p>Sunrise: {weatherData.sys.sunrise}</p>
-          <p>Sunstet: {weatherData.sys.sunset}</p>
         </div>
       )}
       <div className={styles.statsWrapper}>
-        <h1>Stats info</h1>
-        <div className={styles.statsBox}>
-          <div>Stats card1</div>
-          <div>Stats card2</div>
-          <div>Stats card3</div>
-          <div>Stats card4</div>
-          <div>Stats card5</div>
-          <div>Stats card6</div>
-        </div>
+        <input
+          type="text"
+          className={styles.searchInput}
+          defaultValue={defaultValue}
+          placeholder="🔍 Search a city ..."
+          value={input}
+          onFocus={(e) => (e.target.value = "")}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => something(e)}
+        />
+        {weatherData && (
+          <div className={styles.statsBox}>
+            <div>Stats card1</div>
+            <div>Stats card2</div>
+            <div>Visibility: {weatherData.visibility / 1000} km</div>
+            <div>
+              <p>Humidity: {weatherData.main.humidity}</p>
+            </div>
+            <div>
+              <p>
+                Wind:{" "}
+                {` ${weatherData.wind.speed} ${degToCompass(
+                  weatherData.wind.deg
+                )}`}
+              </p>
+            </div>
+            <div style={{ padding: "20px", border: "1px solid grey" }}>
+              <p>
+                Sunrise:{" "}
+                {new Date(
+                  weatherData.sys.sunrise * 1000 + weatherData.timezone * 1000
+                ).toLocaleString("en-US")}
+              </p>
+              <p>
+                Sunset:{" "}
+                {new Date(weatherData.sys.sunset * 1000).toLocaleString(
+                  "en-US"
+                )}
+              </p>
+            </div>
+          </div>
+        )}
       </div>
-      <input
-        type="text"
-        className={styles.searchInput}
-        defaultValue="Search a cities..."
-        value={input}
-        onFocus={(e) => (e.target.value = "")}
-        onChange={(e) => setInput(e.target.value)}
-        onKeyDown={(e) => something(e)}
-      />
     </div>
   );
 }
