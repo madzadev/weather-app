@@ -4,8 +4,6 @@ import Image from "next/image";
 
 export default function Home() {
   const [input, setInput] = useState();
-  const [defaultValue, setDefaultValue] = useState("Search a city...");
-  const [isCurrentActive, setIsCurrentActive] = useState(true);
   const [weatherData, setWeatherData] = useState();
 
   const clickHandler = async () => {
@@ -17,9 +15,7 @@ export default function Home() {
     const data = await res.json();
     console.log(data);
     setWeatherData({ ...data });
-
     setInput("");
-    // setDefaultValue("sss");
   };
 
   const something = (event) => {
@@ -85,9 +81,7 @@ export default function Home() {
         <input
           type="text"
           className={styles.searchInput}
-          defaultValue={defaultValue}
-          // placeholder="🔍 Search a city ..."
-          value={input}
+          defaultValue="Search a city..."
           onFocus={(e) => (e.target.value = "")}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => something(e)}

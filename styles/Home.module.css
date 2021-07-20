@@ -60,14 +60,12 @@
 .searchInput {
   margin-bottom: 20px;
   height: 40px;
-  width: 300px;
-  border: none;
+  width: 200px;
+  border: 2px solid rgb(218, 218, 218);
   padding: 0 10px;
   color: #c5c5c5;
-  /* background-color: none; */
   font-size: 20px;
   text-align: right;
-  /* background-color: rgb(247, 247, 247); */
   border-radius: 20px;
   font-family: "Varela Round", sans-serif;
   font-size: 18px;
