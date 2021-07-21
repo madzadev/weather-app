@@ -1,6 +1,5 @@
 .wrapper {
   max-width: 1200px;
-  /* margin: 0px auto; */
   text-align: center;
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 8px 32px 0 rgba(83, 89, 179, 0.37);
@@ -9,6 +8,7 @@
   border-radius: 30px;
   display: grid;
   grid-template-columns: 1fr 2fr;
+  margin: 0 20px;
 }
 
 .weatherWrapper {
@@ -63,7 +63,6 @@
 .searchInput {
   margin-bottom: 20px;
   height: 40px;
-  /* border: 2px solid rgb(34, 34, 34); */
   border: none;
   padding: 0 10px;
   color: #303030;
@@ -72,4 +71,11 @@
   border-radius: 3px;
   font-family: "Varela Round", sans-serif;
   font-size: 18px;
+}
+
+@media only screen and (max-width: 950px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }

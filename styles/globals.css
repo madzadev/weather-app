@@ -8,8 +8,6 @@
 
 html,
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-image: radial-gradient(
     circle 993px at 0.5% 50.5%,
     rgba(137, 171, 245, 0.37) 0%,
@@ -23,7 +21,10 @@ body {
   align-items: center;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@media only screen and (max-width: 950px) {
+  html,
+  body {
+    min-height: 100vh;
+    display: block;
+  }
 }
