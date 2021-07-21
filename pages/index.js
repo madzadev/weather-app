@@ -14,7 +14,7 @@ export default function Home() {
       body: JSON.stringify({ input, systemUsed }),
     });
     const data = await res.json();
-    console.log(data);
+
     setWeatherData({ ...data });
     setInput("");
   };
@@ -39,7 +39,7 @@ export default function Home() {
       "E",
       "ESE",
       "SE",
-      "SSE",
+      "S/SE",
       "S",
       "SSW",
       "SW",
@@ -61,11 +61,28 @@ export default function Home() {
   };
 
   const ctoF = (c) => (c * 9) / 5 + 32;
-  const mpsToMph = (mps) => (mps * 2.236936).toPrecision(3);
-  const kmToM = (km) => (km / 1.609).toPrecision(2);
+  const mpsToMph = (mps) => (mps * 2.236936).toFixed(2);
+  const kmToM = (km) => (km / 1.609).toFixed(1);
+
+  const timeToAMPM = (time) => {
+    let hours = time.split(":")[0];
+    let minutes = time.split(":")[1];
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    // minutes = minutes < 10 ? "0" + minutes : minutes;
+    return hours + ":" + minutes;
+  };
+
+  const isPM = (time) => {
+    let hours = time.split(":")[0];
+    if (hours >= 12) {
+      return "PM";
+    } else {
+      return "AM";
+    }
+  };
 
   const changeSystem = () => {
-    console.log("system changed");
     if (systemUsed == "metric") {
       setSystemUsed("imperial");
     } else {
@@ -128,18 +145,23 @@ export default function Home() {
                 ]
               }
               ,{" "}
-              {
-                convertTime(weatherData.dt, weatherData.timezone)[0].split(
-                  ":"
-                )[0]
-              }
-              :00
+              {systemUsed == "metric"
+                ? convertTime(weatherData.dt, weatherData.timezone)[0].split(
+                    ":"
+                  )[0]
+                : timeToAMPM(
+                    convertTime(weatherData.dt, weatherData.timezone)[0]
+                  ).split(":")[0]}
+              :00{" "}
+              {systemUsed == "imperial"
+                ? isPM(convertTime(weatherData.dt, weatherData.timezone)[0])
+                : ""}
             </h2>
           )}
           <input
             type="text"
             className={styles.searchInput}
-            defaultValue="Search a city..."
+            // defaultValue="Search a city..."
             onFocus={(e) => (e.target.value = "")}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => something(e)}
@@ -226,14 +248,28 @@ export default function Home() {
                 />
                 <div>
                   <h1>
-                    {
-                      convertTime(
-                        weatherData.sys.sunrise,
-                        weatherData.timezone
-                      )[0]
-                    }
+                    {systemUsed == "metric"
+                      ? convertTime(
+                          weatherData.sys.sunrise,
+                          weatherData.timezone
+                        )[0]
+                      : timeToAMPM(
+                          convertTime(
+                            weatherData.sys.sunrise,
+                            weatherData.timezone
+                          )[0]
+                        )}
                   </h1>
-                  <p>AM</p>
+                  <p>
+                    {systemUsed == "imperial"
+                      ? isPM(
+                          convertTime(
+                            weatherData.sys.sunrise,
+                            weatherData.timezone
+                          )[0]
+                        )
+                      : ""}
+                  </p>
                 </div>
               </div>
             </div>
@@ -248,14 +284,28 @@ export default function Home() {
                 />
                 <div>
                   <h1>
-                    {
-                      convertTime(
-                        weatherData.sys.sunset,
-                        weatherData.timezone
-                      )[0]
-                    }
+                    {systemUsed == "metric"
+                      ? convertTime(
+                          weatherData.sys.sunset,
+                          weatherData.timezone
+                        )[0]
+                      : timeToAMPM(
+                          convertTime(
+                            weatherData.sys.sunset,
+                            weatherData.timezone
+                          )[0]
+                        )}
                   </h1>
-                  <p>PM</p>
+                  <p>
+                    {systemUsed == "imperial"
+                      ? isPM(
+                          convertTime(
+                            weatherData.sys.sunset,
+                            weatherData.timezone
+                          )[0]
+                        )
+                      : ""}
+                  </p>
                 </div>
               </div>
             </div>

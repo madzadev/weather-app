@@ -1,6 +1,6 @@
 .wrapper {
   max-width: 1200px;
-  margin: 0px auto;
+  /* margin: 0px auto; */
   text-align: center;
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 8px 32px 0 rgba(83, 89, 179, 0.37);
@@ -63,8 +63,8 @@
 .searchInput {
   margin-bottom: 20px;
   height: 40px;
-  border: 2px solid rgb(34, 34, 34);
-  /* border: none; */
+  /* border: 2px solid rgb(34, 34, 34); */
+  border: none;
   padding: 0 10px;
   color: #303030;
   font-size: 20px;

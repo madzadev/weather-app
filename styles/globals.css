@@ -16,8 +16,11 @@ body {
     rgba(245, 247, 252, 1) 100.2%
   );
   font-family: "Varela Round", sans-serif;
-  min-height: 100vh;
-  padding-top: 50px;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 a {
