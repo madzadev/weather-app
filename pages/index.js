@@ -7,7 +7,7 @@ export default function Home() {
   const [systemUsed, setSystemUsed] = useState("metric");
   const [weatherData, setWeatherData] = useState();
 
-  const clickHandler = async () => {
+  const getData = async () => {
     const res = await fetch("/api/data", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -21,9 +21,13 @@ export default function Home() {
 
   const something = (event) => {
     if (event.keyCode === 13) {
-      clickHandler();
+      getData();
     }
   };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   function degToCompass(num) {
     var val = Math.floor(num / 22.5 + 0.5);
@@ -56,8 +60,16 @@ export default function Home() {
     return time;
   };
 
+  const ctoF = (c) => (c * 9) / 5 + 32;
+  const mpsToMph = (mps) => (mps * 2.236936).toPrecision(3);
+
   const changeSystem = () => {
     console.log("system changed");
+    if (systemUsed == "metric") {
+      setSystemUsed("imperial");
+    } else {
+      setSystemUsed("metric");
+    }
   };
 
   var weekday = [
@@ -69,8 +81,6 @@ export default function Home() {
     "Friday",
     "Saturday",
   ];
-
-  // console.log(convertTime(weatherData.dt, weatherData.timezone));
 
   return (
     <div className={styles.wrapper}>
@@ -91,9 +101,18 @@ export default function Home() {
           />
 
           <h1 className={styles.mainTemp}>
-            {Math.round(weatherData.main.temp)}°
+            {systemUsed == "metric"
+              ? Math.round(weatherData.main.temp)
+              : Math.round(ctoF(weatherData.main.temp))}
+            °
           </h1>
-          <p>Feels like {Math.round(weatherData.main.feels_like)}°</p>
+          <p>
+            Feels like{" "}
+            {systemUsed == "metric"
+              ? Math.round(weatherData.main.feels_like)
+              : Math.round(ctoF(weatherData.main.feels_like))}
+            °
+          </p>
         </div>
       )}
       <div className={styles.statsWrapper}>
@@ -153,8 +172,12 @@ export default function Home() {
                   width="100px"
                 />
                 <div>
-                  <h1>{weatherData.wind.speed}</h1>
-                  <p>m/s</p>
+                  <h1>
+                    {systemUsed == "metric"
+                      ? weatherData.wind.speed
+                      : mpsToMph(weatherData.wind.speed)}
+                  </h1>
+                  <p>{systemUsed == "metric" ? "m/s" : "m/h"}</p>
                 </div>
               </div>
             </div>
@@ -233,6 +256,8 @@ export default function Home() {
             </div>
           </div>
         )}
+        <p onClick={changeSystem}>Metric System</p>
+        <p onClick={changeSystem}>Imperial System</p>
       </div>
     </div>
   );
