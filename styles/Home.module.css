@@ -77,5 +77,24 @@
   .wrapper {
     display: grid;
     grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 20px auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    margin: 0 auto;
+    border-radius: 0;
+  }
+
+  .statsBox {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 475px) {
+  .statsBox {
+    grid-template-columns: 1fr;
   }
 }

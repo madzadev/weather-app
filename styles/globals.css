@@ -24,7 +24,6 @@ body {
 @media only screen and (max-width: 950px) {
   html,
   body {
-    min-height: 100vh;
     display: block;
   }
 }
