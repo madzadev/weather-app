@@ -62,6 +62,7 @@ export default function Home() {
 
   const ctoF = (c) => (c * 9) / 5 + 32;
   const mpsToMph = (mps) => (mps * 2.236936).toPrecision(3);
+  const kmToM = (km) => (km / 1.609).toPrecision(2);
 
   const changeSystem = () => {
     console.log("system changed");
@@ -104,14 +105,14 @@ export default function Home() {
             {systemUsed == "metric"
               ? Math.round(weatherData.main.temp)
               : Math.round(ctoF(weatherData.main.temp))}
-            °
+            °{systemUsed == "metric" ? "C" : "F"}
           </h1>
           <p>
             Feels like{" "}
             {systemUsed == "metric"
               ? Math.round(weatherData.main.feels_like)
               : Math.round(ctoF(weatherData.main.feels_like))}
-            °
+            °{systemUsed == "metric" ? "C" : "F"}
           </p>
         </div>
       )}
@@ -205,8 +206,12 @@ export default function Home() {
                   width="100px"
                 />
                 <div>
-                  <h1>{(weatherData.visibility / 1000).toPrecision(2)}</h1>
-                  <p>km</p>
+                  <h1>
+                    {systemUsed == "metric"
+                      ? (weatherData.visibility / 1000).toPrecision(2)
+                      : kmToM(weatherData.visibility / 1000)}
+                  </h1>
+                  <p>{systemUsed == "metric" ? "km" : "miles"}</p>
                 </div>
               </div>
             </div>
