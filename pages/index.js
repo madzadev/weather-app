@@ -182,7 +182,7 @@ export default function Home() {
                   width="100px"
                 />
                 <div>
-                  <h1>{weatherData.visibility / 1000}</h1>
+                  <h1>{(weatherData.visibility / 1000).toPrecision(2)}</h1>
                   <p>km</p>
                 </div>
               </div>
