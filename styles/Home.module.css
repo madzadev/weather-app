@@ -11,6 +11,10 @@
   margin: 0 20px;
 }
 
+.wrapperHide {
+  display: none;
+}
+
 .weatherWrapper {
   padding: 30px;
 }
