@@ -47,6 +47,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
   border-radius: 20px;
+  margin-bottom: 20px;
 }
 
 .statsCard {
@@ -75,6 +76,16 @@
   border-radius: 3px;
   font-family: "Varela Round", sans-serif;
   font-size: 18px;
+}
+
+.switchBox {
+  text-align: right;
+}
+
+.switch {
+  margin: 0 10px;
+  cursor: pointer;
+  display: inline;
 }
 
 @media only screen and (max-width: 950px) {

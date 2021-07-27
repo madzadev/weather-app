@@ -142,9 +142,11 @@ export default function Home() {
             }
             ,{" "}
             {systemUsed == "metric"
-              ? convertTime(weatherData.dt, weatherData.timezone)[0].split(
-                  ":"
-                )[0]
+              ? parseInt(
+                  convertTime(weatherData.dt, weatherData.timezone)[0].split(
+                    ":"
+                  )[0]
+                )
               : timeToAMPM(
                   convertTime(weatherData.dt, weatherData.timezone)[0]
                 ).split(":")[0]}
@@ -157,7 +159,6 @@ export default function Home() {
           <input
             type="text"
             className={styles.searchInput}
-            // defaultValue="Search a city..."
             onFocus={(e) => (e.target.value = "")}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => something(e)}
@@ -244,10 +245,17 @@ export default function Home() {
               <div>
                 <h1>
                   {systemUsed == "metric"
-                    ? convertTime(
-                        weatherData.sys.sunrise,
-                        weatherData.timezone
-                      )[0]
+                    ? `${parseInt(
+                        convertTime(
+                          weatherData.sys.sunrise,
+                          weatherData.timezone
+                        )[0].split(":")[0]
+                      )}:${
+                        convertTime(
+                          weatherData.sys.sunrise,
+                          weatherData.timezone
+                        )[0].split(":")[1]
+                      }`
                     : timeToAMPM(
                         convertTime(
                           weatherData.sys.sunrise,
@@ -305,9 +313,22 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        <p onClick={changeSystem}>Metric System</p>
-        <p onClick={changeSystem}>Imperial System</p>
+        <div className={styles.switchBox}>
+          <p
+            className={styles.switch}
+            style={{ color: systemUsed == "metric" ? "green" : "black" }}
+            onClick={changeSystem}
+          >
+            Metric System
+          </p>
+          <p
+            className={styles.switch}
+            style={{ color: systemUsed == "metric" ? "black" : "green" }}
+            onClick={changeSystem}
+          >
+            Imperial System
+          </p>
+        </div>
       </div>
     </div>
   ) : (
