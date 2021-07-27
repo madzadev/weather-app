@@ -6,7 +6,6 @@ export default function Home() {
   const [input, setInput] = useState("mumbai");
   const [systemUsed, setSystemUsed] = useState("metric");
   const [weatherData, setWeatherData] = useState();
-  // const [isLoading, setIsLoading] = useState(true);
 
   const getData = async () => {
     const res = await fetch("/api/data", {
@@ -15,6 +14,7 @@ export default function Home() {
       body: JSON.stringify({ input }),
     });
     const data = await res.json();
+    // console.log(data);
 
     setWeatherData({ ...data });
     setInput("");
@@ -83,13 +83,10 @@ export default function Home() {
     }
   };
 
-  const changeSystem = () => {
-    if (systemUsed == "metric") {
-      setSystemUsed("imperial");
-    } else {
-      setSystemUsed("metric");
-    }
-  };
+  const changeSystem = () =>
+    systemUsed == "metric"
+      ? setSystemUsed("imperial")
+      : setSystemUsed("metric");
 
   var weekday = [
     "Sunday",
@@ -314,6 +311,6 @@ export default function Home() {
       </div>
     </div>
   ) : (
-    <h1>Loading results</h1>
+    <h1>Loading data...</h1>
   );
 }
