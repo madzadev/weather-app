@@ -88,6 +88,10 @@
   display: inline;
 }
 
+.errScr {
+  text-align: center;
+}
+
 @media only screen and (max-width: 950px) {
   .wrapper {
     display: grid;

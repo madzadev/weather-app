@@ -14,7 +14,6 @@ export default function Home() {
       body: JSON.stringify({ input }),
     });
     const data = await res.json();
-    console.log(data);
 
     setWeatherData({ ...data });
     setInput("");
@@ -331,8 +330,8 @@ export default function Home() {
       </div>
     </div>
   ) : weatherData && weatherData.message ? (
-    <>
-      <h1>City not found, try again</h1>
+    <div className={styles.errScr}>
+      <h1 style={{ marginBottom: "30px" }}>City not found, try again!</h1>
       <input
         type="text"
         className={styles.searchInput}
@@ -340,7 +339,7 @@ export default function Home() {
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={(e) => something(e)}
       />
-    </>
+    </div>
   ) : (
     <h1>Loading data...</h1>
   );
