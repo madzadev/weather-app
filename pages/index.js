@@ -14,7 +14,7 @@ export default function Home() {
       body: JSON.stringify({ input }),
     });
     const data = await res.json();
-    // console.log(data);
+    console.log(data);
 
     setWeatherData({ ...data });
     setInput("");
@@ -69,8 +69,7 @@ export default function Home() {
     let hours = time.split(":")[0];
     let minutes = time.split(":")[1];
     hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
-    // minutes = minutes < 10 ? "0" + minutes : minutes;
+    hours = hours ? hours : 12;
     return hours + ":" + minutes;
   };
 
@@ -98,7 +97,7 @@ export default function Home() {
     "Saturday",
   ];
 
-  return weatherData ? (
+  return weatherData && !weatherData.message ? (
     <div className={styles.wrapper}>
       <div className={styles.weatherWrapper}>
         <h1 className={styles.locationTitle}>
@@ -331,6 +330,17 @@ export default function Home() {
         </div>
       </div>
     </div>
+  ) : weatherData && weatherData.message ? (
+    <>
+      <h1>City not found, try again</h1>
+      <input
+        type="text"
+        className={styles.searchInput}
+        onFocus={(e) => (e.target.value = "")}
+        onChange={(e) => setInput(e.target.value)}
+        onKeyDown={(e) => something(e)}
+      />
+    </>
   ) : (
     <h1>Loading data...</h1>
   );
