@@ -8,7 +8,7 @@ export default function Home() {
   const [weatherData, setWeatherData] = useState();
 
   const getData = async () => {
-    const res = await fetch("/api/data", {
+    const res = await fetch("api/data", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ input }),
@@ -19,7 +19,7 @@ export default function Home() {
     setInput("");
   };
 
-  const something = (event) => {
+  const enterKeydown = (event) => {
     if (event.keyCode === 13) {
       getData();
     }
@@ -159,7 +159,7 @@ export default function Home() {
             className={styles.searchInput}
             onFocus={(e) => (e.target.value = "")}
             onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => something(e)}
+            onKeyDown={(e) => enterKeydown(e)}
           />
         </div>
 
@@ -337,7 +337,7 @@ export default function Home() {
         className={styles.searchInput}
         onFocus={(e) => (e.target.value = "")}
         onChange={(e) => setInput(e.target.value)}
-        onKeyDown={(e) => something(e)}
+        onKeyDown={(e) => enterKeydown(e)}
       />
     </div>
   ) : (
