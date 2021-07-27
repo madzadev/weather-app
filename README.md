@@ -1,34 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Weather App
 
-## Getting Started
+Check the current weather on any city on the planet. Switch between metric and imperial units.
 
-First, run the development server:
+![Alt img](https://www.madza.dev/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fzlsyc9paq6sa%2F44dvlE4XsjnPYxhYV0BokW%2F4e59dee4fd0952312a2e4072c61cecee%2FTn8VS0npqE.gif&w=1080&q=70)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Installation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. `git clone https://github.com/madzadev/weather-app.git`
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+2. `cd weather-app`
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+3. `npm install`
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+4. create env file and include a string
 
-## Learn More
+5. `npm run dev`
 
-To learn more about Next.js, take a look at the following resources:
+## Contributions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Any feature requests and pull requests are welcome!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The project is under [MIT license](https://choosealicense.com/licenses/mit/).
