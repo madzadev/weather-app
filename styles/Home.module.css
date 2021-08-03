@@ -141,4 +141,8 @@
   .statsBox {
     grid-template-columns: 1fr;
   }
+
+  .statsCardContent {
+    grid-template-columns: 1fr 2fr;
+  }
 }

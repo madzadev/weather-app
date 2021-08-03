@@ -351,6 +351,8 @@ export default function Home() {
       </div>
     </div>
   ) : (
-    <h1>Loading data...</h1>
+    <div className={styles.errScr}>
+      <h1>Loading data...</h1>
+    </div>
   );
 }
