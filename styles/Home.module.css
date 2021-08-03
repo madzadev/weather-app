@@ -145,4 +145,15 @@
   .statsCardContent {
     grid-template-columns: 1fr 2fr;
   }
+
+  .switchBox {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 335px) {
+  .switchBox {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
