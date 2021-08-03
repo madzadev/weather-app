@@ -339,14 +339,16 @@ export default function Home() {
     </div>
   ) : weatherData && weatherData.message ? (
     <div className={styles.errScr}>
-      <h1 style={{ marginBottom: "30px" }}>City not found, try again!</h1>
-      <input
-        type="text"
-        className={styles.searchInput}
-        onFocus={(e) => (e.target.value = "")}
-        onChange={(e) => setInput(e.target.value)}
-        onKeyDown={(e) => enterKeydown(e)}
-      />
+      <div>
+        <h1 style={{ marginBottom: "30px" }}>City not found, try again!</h1>
+        <input
+          type="text"
+          className={styles.searchInput}
+          onFocus={(e) => (e.target.value = "")}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => enterKeydown(e)}
+        />
+      </div>
     </div>
   ) : (
     <h1>Loading data...</h1>

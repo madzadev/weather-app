@@ -74,7 +74,6 @@
   font-size: 20px;
   text-align: right;
   border-radius: 10px;
-  /* border: 2px solid black; */
   font-family: "Varela Round", sans-serif;
   font-size: 18px;
 }
@@ -91,6 +90,16 @@
 
 .errScr {
   text-align: center;
+  height: 100vh;
+  max-width: 300px;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.errSearchInput {
+  max-width: 100%;
 }
 
 @media only screen and (max-width: 950px) {
