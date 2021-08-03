@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.css";
 import Image from "next/image";
 
 export default function Home() {
-  const [input, setInput] = useState("mumbai");
+  const [input, setInput] = useState("Riga");
   const [systemUsed, setSystemUsed] = useState("metric");
   const [weatherData, setWeatherData] = useState();
 
@@ -157,10 +157,17 @@ export default function Home() {
           <input
             type="text"
             className={styles.searchInput}
-            defaultValue="Search..."
-            onFocus={(e) => (e.target.value = "")}
+            placeholder="Search a city..."
+            value={input}
+            onFocus={(e) => {
+              e.target.value = "";
+              e.target.placeholder = "";
+            }}
             onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => enterKeydown(e)}
+            onKeyDown={(e) => {
+              enterKeydown(e);
+              e.target.placeholder = "Search a city...";
+            }}
           />
         </div>
 
