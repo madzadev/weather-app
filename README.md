@@ -32,7 +32,7 @@ Check the current weather on any city on the planet. Switch between metric and i
 
 6. `cp .env.example .env.local`
 
-7. Paste API key as `OPENWEATHER_API_KEY`
+7. Paste API key for `OPENWEATHER_API_KEY`
 
 8. `npm run dev`
 
