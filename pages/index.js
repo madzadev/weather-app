@@ -157,6 +157,7 @@ export default function Home() {
           <input
             type="text"
             className={styles.searchInput}
+            defaultValue="Search..."
             onFocus={(e) => (e.target.value = "")}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => enterKeydown(e)}

@@ -73,7 +73,8 @@
   color: #303030;
   font-size: 20px;
   text-align: right;
-  border-radius: 3px;
+  border-radius: 10px;
+  /* border: 2px solid black; */
   font-family: "Varela Round", sans-serif;
   font-size: 18px;
 }
@@ -109,7 +110,6 @@
   .wrapper {
     margin: 0 auto;
     border-radius: 0;
-    /* width: 100%; */
   }
 
   .statsBox {
