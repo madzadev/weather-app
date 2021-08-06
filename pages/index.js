@@ -3,6 +3,7 @@ import styles from "../styles/Home.module.css";
 import Image from "next/image";
 import Metrics from "./components/Metrics";
 import { convertTime, ctoF, timeToAMPM } from "./services/converters";
+import { isPM } from "./services/utils";
 
 export default function Home() {
   const [input, setInput] = useState("Riga");
@@ -30,15 +31,6 @@ export default function Home() {
   useEffect(() => {
     getData();
   }, []);
-
-  const isPM = (time) => {
-    let hours = time.split(":")[0];
-    if (hours >= 12) {
-      return "PM";
-    } else {
-      return "AM";
-    }
-  };
 
   const changeSystem = () =>
     systemUsed == "metric"

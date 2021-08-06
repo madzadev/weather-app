@@ -6,6 +6,7 @@ import {
   mpsToMph,
   timeToAMPM,
 } from "../services/converters";
+import { isPM } from "../services/utils";
 import MetricCard from "./MetricCard";
 
 const Metrics = ({ styles, data, systemUsed }) => {
@@ -73,7 +74,7 @@ const Metrics = ({ styles, data, systemUsed }) => {
         }
         unit={
           systemUsed == "imperial"
-            ? isPMs(convertTime(data.sys.sunset, data.timezone)[0])
+            ? isPM(convertTime(data.sys.sunset, data.timezone)[0])
             : ""
         }
         styles={styles}
