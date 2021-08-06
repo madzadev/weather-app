@@ -1,12 +1,11 @@
 import React from "react";
+import { degToCompass } from "../services/converters";
 import {
-  convertTime,
-  degToCompass,
-  kmToM,
-  mpsToMph,
-  timeToAMPM,
-} from "../services/converters";
-import { isPM } from "../services/utils";
+  getTime,
+  getAMPM,
+  getVisibility,
+  getWindSpeed,
+} from "../services/utils";
 import MetricCard from "./MetricCard";
 
 const Metrics = ({ styles, data, systemUsed }) => {
@@ -23,9 +22,7 @@ const Metrics = ({ styles, data, systemUsed }) => {
       <MetricCard
         title={"Wind speed"}
         iconSrc={"/icons/017-wind.png"}
-        metric={
-          systemUsed == "metric" ? data.wind.speed : mpsToMph(data.wind.speed)
-        }
+        metric={getWindSpeed(systemUsed, data.wind.speed)}
         unit={systemUsed == "metric" ? "m/s" : "m/h"}
         styles={styles}
       />
@@ -40,11 +37,7 @@ const Metrics = ({ styles, data, systemUsed }) => {
       <MetricCard
         title={"Visibility"}
         iconSrc={"/icons/binocular.png"}
-        metric={
-          systemUsed == "metric"
-            ? (data.visibility / 1000).toPrecision(2)
-            : kmToM(data.visibility / 1000)
-        }
+        metric={getVisibility(systemUsed, data.visibility)}
         unit={systemUsed == "metric" ? "km" : "miles"}
         styles={styles}
       />
@@ -52,31 +45,16 @@ const Metrics = ({ styles, data, systemUsed }) => {
       <MetricCard
         title={"Sunrise"}
         iconSrc={"/icons/040-sunrise.png"}
-        metric={
-          systemUsed == "metric"
-            ? `${parseInt(
-                convertTime(data.sys.sunrise, data.timezone)[0].split(":")[0]
-              )}:${
-                convertTime(data.sys.sunrise, data.timezone)[0].split(":")[1]
-              }`
-            : timeToAMPM(convertTime(data.sys.sunrise, data.timezone)[0])
-        }
+        metric={getTime(systemUsed, data.sys.sunrise, data.timezone)}
+        unit={getAMPM(systemUsed, data.sys.sunset, data.timezone)}
         styles={styles}
       />
 
       <MetricCard
         title={"Sunset"}
         iconSrc={"/icons/041-sunset.png"}
-        metric={
-          systemUsed == "metric"
-            ? convertTime(data.sys.sunset, data.timezone)[0]
-            : timeToAMPM(convertTime(data.sys.sunset, data.timezone)[0])
-        }
-        unit={
-          systemUsed == "imperial"
-            ? isPM(convertTime(data.sys.sunset, data.timezone)[0])
-            : ""
-        }
+        metric={getTime(systemUsed, data.sys.sunset, data.timezone)}
+        unit={getAMPM(systemUsed, data.sys.sunset, data.timezone)}
         styles={styles}
       />
     </div>
