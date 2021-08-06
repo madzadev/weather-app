@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
+import MetricCard from "./components/MetricCard";
 
 export default function Home() {
   const [input, setInput] = useState("Riga");
@@ -172,152 +173,90 @@ export default function Home() {
         </div>
 
         <div className={styles.statsBox}>
-          <div className={styles.statsCard}>
-            <p>Humidity</p>
-            <div className={styles.statsCardContent}>
-              <Image
-                alt="weatherIcon"
-                src={`/icons/025-humidity.png`}
-                height="100px"
-                width="100px"
-              />
-              <div>
-                <h1>{weatherData.main.humidity}</h1>
-                <p>%</p>
-              </div>
-            </div>
-          </div>
-          <div className={styles.statsCard}>
-            <p>Wind speed</p>
-            <div className={styles.statsCardContent}>
-              <Image
-                alt="weatherIcon"
-                src={`/icons/017-wind.png`}
-                height="100px"
-                width="100px"
-              />
-              <div>
-                <h1>
-                  {systemUsed == "metric"
-                    ? weatherData.wind.speed
-                    : mpsToMph(weatherData.wind.speed)}
-                </h1>
-                <p>{systemUsed == "metric" ? "m/s" : "m/h"}</p>
-              </div>
-            </div>
-          </div>
-          <div className={styles.statsCard}>
-            <p>Wind direction</p>
-            <div className={styles.statsCardContent}>
-              <Image
-                alt="weatherIcon"
-                src={`/icons/014-compass.png`}
-                height="100px"
-                width="100px"
-              />
-              <div>
-                <h1>{degToCompass(weatherData.wind.deg)}</h1>
-              </div>
-            </div>
-          </div>
-          <div className={styles.statsCard}>
-            <p>Visibility</p>
-            <div className={styles.statsCardContent}>
-              <Image
-                alt="weatherIcon"
-                src={`/icons/binocular.png`}
-                height="100px"
-                width="100px"
-              />
-              <div>
-                <h1>
-                  {systemUsed == "metric"
-                    ? (weatherData.visibility / 1000).toPrecision(2)
-                    : kmToM(weatherData.visibility / 1000)}
-                </h1>
-                <p>{systemUsed == "metric" ? "km" : "miles"}</p>
-              </div>
-            </div>
-          </div>
-          <div className={styles.statsCard}>
-            <p>Sunrise</p>
-            <div className={styles.statsCardContent}>
-              <Image
-                alt="weatherIcon"
-                src={`/icons/040-sunrise.png`}
-                height="100px"
-                width="100px"
-              />
-              <div>
-                <h1>
-                  {systemUsed == "metric"
-                    ? `${parseInt(
-                        convertTime(
-                          weatherData.sys.sunrise,
-                          weatherData.timezone
-                        )[0].split(":")[0]
-                      )}:${
-                        convertTime(
-                          weatherData.sys.sunrise,
-                          weatherData.timezone
-                        )[0].split(":")[1]
-                      }`
-                    : timeToAMPM(
-                        convertTime(
-                          weatherData.sys.sunrise,
-                          weatherData.timezone
-                        )[0]
-                      )}
-                </h1>
-                <p>
-                  {systemUsed == "imperial"
-                    ? isPM(
-                        convertTime(
-                          weatherData.sys.sunrise,
-                          weatherData.timezone
-                        )[0]
-                      )
-                    : ""}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className={styles.statsCard}>
-            <p>Sunset</p>
-            <div className={styles.statsCardContent}>
-              <Image
-                alt="weatherIcon"
-                src={`/icons/041-sunset.png`}
-                height="100px"
-                width="100px"
-              />
-              <div>
-                <h1>
-                  {systemUsed == "metric"
-                    ? convertTime(
-                        weatherData.sys.sunset,
-                        weatherData.timezone
-                      )[0]
-                    : timeToAMPM(
-                        convertTime(
-                          weatherData.sys.sunset,
-                          weatherData.timezone
-                        )[0]
-                      )}
-                </h1>
-                <p>
-                  {systemUsed == "imperial"
-                    ? isPM(
-                        convertTime(
-                          weatherData.sys.sunset,
-                          weatherData.timezone
-                        )[0]
-                      )
-                    : ""}
-                </p>
-              </div>
-            </div>
-          </div>
+          <MetricCard
+            title={"Humidity"}
+            iconSrc={"/icons/025-humidity.png"}
+            metric={weatherData.main.humidity}
+            unit={"%"}
+            styles={styles}
+          />
+
+          <MetricCard
+            title={"Wind speed"}
+            iconSrc={"/icons/017-wind.png"}
+            metric={
+              systemUsed == "metric"
+                ? weatherData.wind.speed
+                : mpsToMph(weatherData.wind.speed)
+            }
+            unit={systemUsed == "metric" ? "m/s" : "m/h"}
+            styles={styles}
+          />
+
+          <MetricCard
+            title={"Wind direction"}
+            iconSrc={"/icons/014-compass.png"}
+            metric={degToCompass(weatherData.wind.deg)}
+            styles={styles}
+          />
+
+          <MetricCard
+            title={"Visibility"}
+            iconSrc={"/icons/binocular.png"}
+            metric={
+              systemUsed == "metric"
+                ? (weatherData.visibility / 1000).toPrecision(2)
+                : kmToM(weatherData.visibility / 1000)
+            }
+            unit={systemUsed == "metric" ? "km" : "miles"}
+            styles={styles}
+          />
+
+          <MetricCard
+            title={"Sunrise"}
+            iconSrc={"/icons/040-sunrise.png"}
+            metric={
+              systemUsed == "metric"
+                ? `${parseInt(
+                    convertTime(
+                      weatherData.sys.sunrise,
+                      weatherData.timezone
+                    )[0].split(":")[0]
+                  )}:${
+                    convertTime(
+                      weatherData.sys.sunrise,
+                      weatherData.timezone
+                    )[0].split(":")[1]
+                  }`
+                : timeToAMPM(
+                    convertTime(
+                      weatherData.sys.sunrise,
+                      weatherData.timezone
+                    )[0]
+                  )
+            }
+            styles={styles}
+          />
+
+          <MetricCard
+            title={"Sunset"}
+            iconSrc={"/icons/041-sunset.png"}
+            metric={
+              systemUsed == "metric"
+                ? convertTime(weatherData.sys.sunset, weatherData.timezone)[0]
+                : timeToAMPM(
+                    convertTime(weatherData.sys.sunset, weatherData.timezone)[0]
+                  )
+            }
+            unit={
+              systemUsed == "imperial"
+                ? isPM(
+                    convertTime(weatherData.sys.sunset, weatherData.timezone)[0]
+                  )
+                : ""
+            }
+            styles={styles}
+          />
         </div>
         <div className={styles.switchBox}>
           <p
