@@ -46,7 +46,7 @@ const Metrics = ({ styles, data, systemUsed }) => {
         title={"Sunrise"}
         iconSrc={"/icons/040-sunrise.png"}
         metric={getTime(systemUsed, data.sys.sunrise, data.timezone)}
-        unit={getAMPM(systemUsed, data.sys.sunset, data.timezone)}
+        unit={getAMPM(systemUsed, data.sys.sunrise, data.timezone)}
         styles={styles}
       />
 
