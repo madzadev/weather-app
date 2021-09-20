@@ -1,5 +1,5 @@
-module.exports = {
-  images: {
-    domains: ["openweathermap.org"],
-  },
-};
+// module.exports = {
+//   images: {
+//     domains: ["openweathermap.org"],
+//   },
+// };
