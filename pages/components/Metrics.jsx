@@ -13,7 +13,7 @@ const Metrics = ({ styles, data, systemUsed }) => {
     <div className={styles.statsBox}>
       <MetricCard
         title={"Humidity"}
-        iconSrc={"/icons/025-humidity.png"}
+        iconSrc={"/icons/humidity.png"}
         metric={data.main.humidity}
         unit={"%"}
         styles={styles}
@@ -21,7 +21,7 @@ const Metrics = ({ styles, data, systemUsed }) => {
 
       <MetricCard
         title={"Wind speed"}
-        iconSrc={"/icons/017-wind.png"}
+        iconSrc={"/icons/wind.png"}
         metric={getWindSpeed(systemUsed, data.wind.speed)}
         unit={systemUsed == "metric" ? "m/s" : "m/h"}
         styles={styles}
@@ -29,7 +29,7 @@ const Metrics = ({ styles, data, systemUsed }) => {
 
       <MetricCard
         title={"Wind direction"}
-        iconSrc={"/icons/014-compass.png"}
+        iconSrc={"/icons/compass.png"}
         metric={degToCompass(data.wind.deg)}
         styles={styles}
       />
@@ -44,7 +44,7 @@ const Metrics = ({ styles, data, systemUsed }) => {
 
       <MetricCard
         title={"Sunrise"}
-        iconSrc={"/icons/040-sunrise.png"}
+        iconSrc={"/icons/sunrise.png"}
         metric={getTime(systemUsed, data.sys.sunrise, data.timezone)}
         unit={getAMPM(systemUsed, data.sys.sunrise, data.timezone)}
         styles={styles}
@@ -52,7 +52,7 @@ const Metrics = ({ styles, data, systemUsed }) => {
 
       <MetricCard
         title={"Sunset"}
-        iconSrc={"/icons/041-sunset.png"}
+        iconSrc={"/icons/sunset.png"}
         metric={getTime(systemUsed, data.sys.sunset, data.timezone)}
         unit={getAMPM(systemUsed, data.sys.sunset, data.timezone)}
         styles={styles}

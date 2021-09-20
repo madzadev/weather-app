@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import styles from "../styles/Home.module.css";
 import Image from "next/image";
+
 import Metrics from "./components/Metrics";
 import { convertTime, ctoF, timeToAMPM } from "./services/converters";
 import { isPM } from "./services/utils";
 
-export default function Home() {
+import styles from "../styles/Home.module.css";
+
+const App = () => {
   const [input, setInput] = useState("Riga");
   const [systemUsed, setSystemUsed] = useState("metric");
   const [weatherData, setWeatherData] = useState();
@@ -159,4 +161,6 @@ export default function Home() {
       <h1>Loading data...</h1>
     </div>
   );
-}
+};
+
+export default App;
