@@ -1,4 +1,3 @@
-import React from "react";
 import { degToCompass } from "../services/converters";
 import {
   getTime,

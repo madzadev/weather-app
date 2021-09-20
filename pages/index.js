@@ -5,7 +5,7 @@ import Metrics from "./components/Metrics";
 import { convertTime, ctoF, timeToAMPM } from "./services/converters";
 import { isPM } from "./services/utils";
 
-import styles from "../styles/Home.module.css";
+import styles from "../styles/App.module.css";
 
 const App = () => {
   const [input, setInput] = useState("Riga");
@@ -24,15 +24,15 @@ const App = () => {
     setInput("");
   };
 
-  const enterKeydown = (event) => {
-    if (event.keyCode === 13) {
-      getData();
-    }
-  };
-
   useEffect(() => {
     getData();
   }, []);
+
+  const enterKeydown = (e) => {
+    if (e.keyCode === 13) {
+      getData();
+    }
+  };
 
   const changeSystem = () =>
     systemUsed == "metric"
