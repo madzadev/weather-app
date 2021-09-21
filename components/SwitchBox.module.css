@@ -7,3 +7,16 @@
   cursor: pointer;
   display: inline;
 }
+
+@media only screen and (max-width: 475px) {
+  .wrapper {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 335px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
