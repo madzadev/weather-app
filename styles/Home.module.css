@@ -78,16 +78,6 @@
   font-size: 18px;
 }
 
-.switchBox {
-  text-align: right;
-}
-
-.switch {
-  margin: 0 10px;
-  cursor: pointer;
-  display: inline;
-}
-
 .errScr {
   text-align: center;
   height: 100vh;

@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 import Metrics from "../components/Metrics";
+import SwitchBox from "../components/SwitchBox";
+
 import { convertTime, ctoF, timeToAMPM } from "../services/converters";
 import { isPM } from "../services/utils";
 
@@ -126,22 +128,7 @@ const App = () => {
         </div>
 
         <Metrics styles={styles} data={weatherData} systemUsed={systemUsed} />
-        <div className={styles.switchBox}>
-          <p
-            className={styles.switch}
-            style={{ color: systemUsed == "metric" ? "green" : "black" }}
-            onClick={changeSystem}
-          >
-            Metric System
-          </p>
-          <p
-            className={styles.switch}
-            style={{ color: systemUsed == "metric" ? "black" : "green" }}
-            onClick={changeSystem}
-          >
-            Imperial System
-          </p>
-        </div>
+        <SwitchBox onClick={changeSystem} systemUsed={systemUsed} />
       </div>
     </div>
   ) : weatherData && weatherData.message ? (
