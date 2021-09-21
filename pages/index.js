@@ -3,6 +3,8 @@ import Image from "next/image";
 
 import Metrics from "../components/Metrics";
 import SwitchBox from "../components/SwitchBox";
+import LoadingScreen from "../components/LoadingScreen";
+import ErrorScreen from "../components/ErrorScreen";
 
 import { convertTime, ctoF, timeToAMPM } from "../services/converters";
 import { isPM } from "../services/utils";
@@ -132,22 +134,13 @@ const App = () => {
       </div>
     </div>
   ) : weatherData && weatherData.message ? (
-    <div className={styles.errScr}>
-      <div>
-        <h1 style={{ marginBottom: "30px" }}>City not found, try again!</h1>
-        <input
-          type="text"
-          className={styles.searchInput}
-          onFocus={(e) => (e.target.value = "")}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => enterKeydown(e)}
-        />
-      </div>
-    </div>
+    <ErrorScreen
+      onFocus={(e) => (e.target.value = "")}
+      onChange={(e) => setInput(e.target.value)}
+      onKeyDown={(e) => enterKeydown(e)}
+    />
   ) : (
-    <div className={styles.errScr}>
-      <h1>Loading data...</h1>
-    </div>
+    <LoadingScreen />
   );
 };
 

@@ -1,0 +1,5 @@
+.wrapper {
+  max-width: 260px;
+  display: grid;
+  place-items: center;
+}
