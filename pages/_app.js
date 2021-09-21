@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 
-function WeatherApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }
 
-export default WeatherApp;
+export default MyApp;

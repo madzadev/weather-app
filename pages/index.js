@@ -59,6 +59,7 @@ const App = () => {
         <p className={styles.weatherDescription}>
           {weatherData.weather[0].description}
         </p>
+
         <Image
           alt="weatherIcon"
           src={`/icons/${weatherData.weather[0].icon}.svg`}
