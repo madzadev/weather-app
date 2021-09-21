@@ -8,17 +8,3 @@
 .message {
   margin-bottom: 30px;
 }
-
-.input {
-  max-width: 100%;
-  margin-bottom: 20px;
-  height: 40px;
-  border: none;
-  padding: 0 10px;
-  color: #303030;
-  font-size: 20px;
-  text-align: right;
-  border-radius: 10px;
-  font-family: "Varela Round", sans-serif;
-  font-size: 18px;
-}

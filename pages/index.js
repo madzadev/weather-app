@@ -74,13 +74,15 @@ const App = () => {
       </div>
     </div>
   ) : weatherData && weatherData.message ? (
-    <ErrorScreen
-      onFocus={(e) => (e.target.value = "")}
-      onChange={(e) => setInput(e.target.value)}
-      onKeyDown={(e) => enterKeydown(e)}
-    />
+    <ErrorScreen errorMessage="City not found, try again!">
+      <Search
+        onFocus={(e) => (e.target.value = "")}
+        onChange={(e) => setInput(e.target.value)}
+        onKeyDown={(e) => enterKeydown(e)}
+      />
+    </ErrorScreen>
   ) : (
-    <LoadingScreen />
+    <LoadingScreen loadingMessage="Loading data..." />
   );
 };
 

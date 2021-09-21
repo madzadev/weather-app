@@ -1,16 +1,10 @@
 import styles from "./ErrorScreen.module.css";
 
-const ErrorScreen = ({ onFocus, onChange, onKeyDown }) => {
+const ErrorScreen = ({ errorMessage, children }) => {
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.message}>City not found, try again!</h1>
-      <input
-        type="text"
-        className={styles.input}
-        onFocus={onFocus}
-        onChange={onChange}
-        onKeyDown={onKeyDown}
-      />
+      <h1 className={styles.message}>{errorMessage}</h1>
+      {children}
     </div>
   );
 };
