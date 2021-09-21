@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import Image from "next/image";
 
+import MainCard from "../components/MainCard";
 import Metrics from "../components/Metrics";
 import SwitchBox from "../components/SwitchBox";
 import LoadingScreen from "../components/LoadingScreen";
 import ErrorScreen from "../components/ErrorScreen";
 
-import { convertTime, ctoF, timeToAMPM } from "../services/converters";
+import { convertTime, timeToAMPM } from "../services/converters";
 import { isPM } from "../services/utils";
 
 import styles from "../styles/Home.module.css";
@@ -55,36 +55,14 @@ const App = () => {
 
   return weatherData && !weatherData.message ? (
     <div className={styles.wrapper}>
-      <div className={styles.weatherWrapper}>
-        <h1 className={styles.locationTitle}>
-          {weatherData.name}, {weatherData.sys.country}
-        </h1>
-
-        <p className={styles.weatherDescription}>
-          {weatherData.weather[0].description}
-        </p>
-
-        <Image
-          alt="weatherIcon"
-          src={`/icons/${weatherData.weather[0].icon}.svg`}
-          height="300px"
-          width="300px"
-        />
-
-        <h1 className={styles.mainTemp}>
-          {systemUsed == "metric"
-            ? Math.round(weatherData.main.temp)
-            : Math.round(ctoF(weatherData.main.temp))}
-          °{systemUsed == "metric" ? "C" : "F"}
-        </h1>
-        <p>
-          Feels like{" "}
-          {systemUsed == "metric"
-            ? Math.round(weatherData.main.feels_like)
-            : Math.round(ctoF(weatherData.main.feels_like))}
-          °{systemUsed == "metric" ? "C" : "F"}
-        </p>
-      </div>
+      <MainCard
+        city={weatherData.name}
+        country={weatherData.sys.country}
+        description={weatherData.weather[0].description}
+        iconName={weatherData.weather[0].icon}
+        systemUsed={systemUsed}
+        weatherData={weatherData}
+      />
 
       <div className={styles.statsWrapper}>
         <div className={styles.titleAndSearch}>

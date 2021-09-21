@@ -15,20 +15,6 @@
   display: none;
 }
 
-.weatherWrapper {
-  padding: 30px;
-}
-
-.locationTitle {
-  font-size: 38px;
-  margin-bottom: 10px;
-}
-
-.weatherDescription {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
 .statsWrapper {
   background-color: rgb(247, 247, 247);
   padding: 30px;
@@ -40,10 +26,6 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 20px;
-}
-
-.mainTemp {
-  font-size: 84px;
 }
 
 .searchInput {
