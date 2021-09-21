@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-import Metrics from "./components/Metrics";
-import { convertTime, ctoF, timeToAMPM } from "./services/converters";
-import { isPM } from "./services/utils";
+import Metrics from "../components/Metrics";
+import { convertTime, ctoF, timeToAMPM } from "../services/converters";
+import { isPM } from "../services/utils";
 
 import styles from "../styles/App.module.css";
 
