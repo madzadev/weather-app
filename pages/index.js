@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
 
 import MainCard from "../components/MainCard";
+import Dates from "../components/Dates";
 import Metrics from "../components/Metrics";
 import SwitchBox from "../components/SwitchBox";
 import LoadingScreen from "../components/LoadingScreen";
 import ErrorScreen from "../components/ErrorScreen";
-
-import { convertTime, timeToAMPM } from "../services/converters";
-import { isPM } from "../services/utils";
 
 import styles from "../styles/Home.module.css";
 
@@ -43,16 +41,6 @@ const App = () => {
       ? setSystemUsed("imperial")
       : setSystemUsed("metric");
 
-  var weekday = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-
   return weatherData && !weatherData.message ? (
     <div className={styles.wrapper}>
       <MainCard
@@ -66,30 +54,7 @@ const App = () => {
 
       <div className={styles.statsWrapper}>
         <div className={styles.titleAndSearch}>
-          <h2 style={{ textAlign: "left" }}>
-            {
-              weekday[
-                new Date(
-                  convertTime(weatherData.dt, weatherData.timezone).input
-                ).getUTCDay()
-              ]
-            }
-            ,{" "}
-            {systemUsed == "metric"
-              ? parseInt(
-                  convertTime(weatherData.dt, weatherData.timezone)[0].split(
-                    ":"
-                  )[0]
-                )
-              : timeToAMPM(
-                  convertTime(weatherData.dt, weatherData.timezone)[0]
-                ).split(":")[0]}
-            :00{" "}
-            {systemUsed == "imperial"
-              ? isPM(convertTime(weatherData.dt, weatherData.timezone)[0])
-              : ""}
-          </h2>
-
+          <Dates weatherData={weatherData} systemUsed={systemUsed} />
           <input
             type="text"
             className={styles.searchInput}
