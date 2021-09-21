@@ -11,10 +11,6 @@
   margin: 0 20px;
 }
 
-.wrapperHide {
-  display: none;
-}
-
 .statsWrapper {
   background-color: rgb(247, 247, 247);
   padding: 30px;
@@ -26,19 +22,6 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 20px;
-}
-
-.searchInput {
-  margin-bottom: 20px;
-  height: 40px;
-  border: none;
-  padding: 0 10px;
-  color: #303030;
-  font-size: 20px;
-  text-align: right;
-  border-radius: 10px;
-  font-family: "Varela Round", sans-serif;
-  font-size: 18px;
 }
 
 @media only screen and (max-width: 950px) {
@@ -65,9 +48,5 @@
   .titleAndSearch {
     grid-template-columns: 1fr;
     place-items: center;
-  }
-
-  .searchInput {
-    width: 100%;
   }
 }

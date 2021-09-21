@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import MainCard from "../components/MainCard";
 import Dates from "../components/Dates";
+import Search from "../components/Search";
 import Metrics from "../components/Metrics";
 import SwitchBox from "../components/SwitchBox";
 import LoadingScreen from "../components/LoadingScreen";
@@ -51,14 +52,11 @@ const App = () => {
         systemUsed={systemUsed}
         weatherData={weatherData}
       />
-
       <div className={styles.statsWrapper}>
         <div className={styles.titleAndSearch}>
           <Dates weatherData={weatherData} systemUsed={systemUsed} />
-          <input
-            type="text"
-            className={styles.searchInput}
-            placeholder="Search a city..."
+          <Search
+            placeHolder="Search a city..."
             value={input}
             onFocus={(e) => {
               e.target.value = "";
@@ -71,7 +69,6 @@ const App = () => {
             }}
           />
         </div>
-
         <Metrics data={weatherData} systemUsed={systemUsed} />
         <SwitchBox onClick={changeSystem} systemUsed={systemUsed} />
       </div>
