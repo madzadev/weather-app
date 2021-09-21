@@ -7,7 +7,9 @@ import {
 } from "../services/utils";
 import MetricCard from "./MetricCard";
 
-const Metrics = ({ styles, data, systemUsed }) => {
+import styles from "./Metrics.module.css";
+
+const Metrics = ({ data, systemUsed }) => {
   return (
     <div className={styles.statsBox}>
       <MetricCard
@@ -15,7 +17,6 @@ const Metrics = ({ styles, data, systemUsed }) => {
         iconSrc={"/icons/humidity.png"}
         metric={data.main.humidity}
         unit={"%"}
-        styles={styles}
       />
 
       <MetricCard
@@ -23,14 +24,12 @@ const Metrics = ({ styles, data, systemUsed }) => {
         iconSrc={"/icons/wind.png"}
         metric={getWindSpeed(systemUsed, data.wind.speed)}
         unit={systemUsed == "metric" ? "m/s" : "m/h"}
-        styles={styles}
       />
 
       <MetricCard
         title={"Wind direction"}
         iconSrc={"/icons/compass.png"}
         metric={degToCompass(data.wind.deg)}
-        styles={styles}
       />
 
       <MetricCard
@@ -38,7 +37,6 @@ const Metrics = ({ styles, data, systemUsed }) => {
         iconSrc={"/icons/binocular.png"}
         metric={getVisibility(systemUsed, data.visibility)}
         unit={systemUsed == "metric" ? "km" : "miles"}
-        styles={styles}
       />
 
       <MetricCard
@@ -46,7 +44,6 @@ const Metrics = ({ styles, data, systemUsed }) => {
         iconSrc={"/icons/sunrise.png"}
         metric={getTime(systemUsed, data.sys.sunrise, data.timezone)}
         unit={getAMPM(systemUsed, data.sys.sunrise, data.timezone)}
-        styles={styles}
       />
 
       <MetricCard
@@ -54,7 +51,6 @@ const Metrics = ({ styles, data, systemUsed }) => {
         iconSrc={"/icons/sunset.png"}
         metric={getTime(systemUsed, data.sys.sunset, data.timezone)}
         unit={getAMPM(systemUsed, data.sys.sunset, data.timezone)}
-        styles={styles}
       />
     </div>
   );

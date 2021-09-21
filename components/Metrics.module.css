@@ -1,0 +1,19 @@
+.statsBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .statsBox {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 475px) {
+  .statsBox {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,6 +1,8 @@
 import Image from "next/image";
 
-const MetricCard = ({ title, iconSrc, metric, unit = "", styles }) => {
+import styles from "./MetricCard.module.css";
+
+const MetricCard = ({ title, iconSrc, metric, unit = "" }) => {
   return (
     <div className={styles.statsCard}>
       <p>{title}</p>

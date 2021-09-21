@@ -42,25 +42,6 @@
   gap: 20px;
 }
 
-.statsBox {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-}
-
-.statsCard {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 20px;
-  padding: 20px;
-}
-
-.statsCardContent {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
 .mainTemp {
   font-size: 84px;
 }
@@ -96,10 +77,6 @@
     margin: 0 auto;
     border-radius: 0;
   }
-
-  .statsBox {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 @media only screen and (max-width: 520px) {
@@ -110,15 +87,5 @@
 
   .searchInput {
     width: 100%;
-  }
-}
-
-@media only screen and (max-width: 475px) {
-  .statsBox {
-    grid-template-columns: 1fr;
-  }
-
-  .statsCardContent {
-    grid-template-columns: 1fr 2fr;
   }
 }

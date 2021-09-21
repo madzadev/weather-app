@@ -1,0 +1,16 @@
+.statsCard {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.statsCardContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media only screen and (max-width: 475px) {
+  .statsCardContent {
+    grid-template-columns: 1fr 2fr;
+  }
+}

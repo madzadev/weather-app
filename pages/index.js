@@ -129,7 +129,7 @@ const App = () => {
           />
         </div>
 
-        <Metrics styles={styles} data={weatherData} systemUsed={systemUsed} />
+        <Metrics data={weatherData} systemUsed={systemUsed} />
         <SwitchBox onClick={changeSystem} systemUsed={systemUsed} />
       </div>
     </div>
