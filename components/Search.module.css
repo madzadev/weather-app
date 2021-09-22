@@ -14,5 +14,6 @@
 @media only screen and (max-width: 520px) {
   .search {
     width: 100%;
+    text-align: center;
   }
 }
