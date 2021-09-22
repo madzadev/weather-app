@@ -5,7 +5,6 @@ import ContentBox from "../components/ContentBox";
 import Header from "../components/Header";
 import DateAndTime from "../components/DateAndTime";
 import Search from "../components/Search";
-
 import MetricsBox from "../components/MetricsBox";
 import MetricsCard from "../components/MetricsCard";
 import UnitSwitch from "../components/UnitSwitch";
@@ -26,7 +25,6 @@ const App = () => {
       body: JSON.stringify({ input }),
     });
     const data = await res.json();
-
     setWeatherData({ ...data });
     setInput("");
   };
@@ -34,6 +32,20 @@ const App = () => {
   useEffect(() => {
     getData();
   }, []);
+
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const res = await fetch("api/data", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({ input }),
+  //     });
+  //     const data = await res.json();
+  //     setWeatherData({ ...data });
+  //     setInput("");
+  //   };
+  //   getData();
+  // }, []);
 
   const enterKeydown = (e) => {
     if (e.keyCode === 13) {
