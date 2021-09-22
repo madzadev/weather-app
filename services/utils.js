@@ -1,5 +1,22 @@
 import { convertTime, kmToM, mpsToMph, timeToAMPM } from "./converters";
 
+export const getWeekDay = (weatherData) => {
+  const weekday = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return weekday[
+    new Date(
+      convertTime(weatherData.dt, weatherData.timezone).input
+    ).getUTCDay()
+  ];
+};
+
 export const isPM = (time) => {
   let hours = time.split(":")[0];
   if (hours >= 12) {
