@@ -15,43 +15,23 @@ import styles from "../styles/Home.module.css";
 
 const App = () => {
   const [input, setInput] = useState("Riga");
-  const [systemUsed, setSystemUsed] = useState("metric");
+  const [execute, setExecute] = useState(true);
   const [weatherData, setWeatherData] = useState();
-
-  const getData = async () => {
-    const res = await fetch("api/data", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ input }),
-    });
-    const data = await res.json();
-    setWeatherData({ ...data });
-    setInput("");
-  };
+  const [systemUsed, setSystemUsed] = useState("metric");
 
   useEffect(() => {
+    const getData = async () => {
+      const res = await fetch("api/data", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ input }),
+      });
+      const data = await res.json();
+      setWeatherData({ ...data });
+      setInput("");
+    };
     getData();
-  }, []);
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const res = await fetch("api/data", {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify({ input }),
-  //     });
-  //     const data = await res.json();
-  //     setWeatherData({ ...data });
-  //     setInput("");
-  //   };
-  //   getData();
-  // }, []);
-
-  const enterKeydown = (e) => {
-    if (e.keyCode === 13) {
-      getData();
-    }
-  };
+  }, [execute]);
 
   const changeSystem = () =>
     systemUsed == "metric"
@@ -80,7 +60,7 @@ const App = () => {
             }}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => {
-              enterKeydown(e);
+              e.keyCode === 13 && setExecute(!execute);
               e.target.placeholder = "Search a city...";
             }}
           />
@@ -94,7 +74,7 @@ const App = () => {
       <Search
         onFocus={(e) => (e.target.value = "")}
         onChange={(e) => setInput(e.target.value)}
-        onKeyDown={(e) => enterKeydown(e)}
+        onKeyDown={(e) => e.keyCode === 13 && setExecute(!execute)}
       />
     </ErrorScreen>
   ) : (
