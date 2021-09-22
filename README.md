@@ -6,17 +6,19 @@ Check the current weather on any city on the planet. Switch between metric and i
 
 ## Features
 
-1. Search cities functionality
+1. User's ability to search cities
 
-2. Metric vs Imperial system
+2. Current local time and date
 
-3. Current local time and date
+3. Temperatures and humidity
 
-4. Temperatures and humidity
+4. Wind speed and direction
 
-5. Wind speed and direction
+5. Sunrise and sunset times
 
-6. Sunrise and sunset times
+6. Metric vs Imperial system
+
+7. Error handling and loading info
 
 ## Installation
 
