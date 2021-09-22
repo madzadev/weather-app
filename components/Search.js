@@ -3,7 +3,7 @@ import styles from "./Search.module.css";
 const Search = ({ placeHolder, value, onFocus, onChange, onKeyDown }) => {
   return (
     <input
-      className={styles.input}
+      className={styles.search}
       type="text"
       placeholder={placeHolder}
       value={value}

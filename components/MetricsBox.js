@@ -11,7 +11,7 @@ import styles from "./MetricsBox.module.css";
 
 const MetricsBox = ({ data, systemUsed }) => {
   return (
-    <div className={styles.statsBox}>
+    <div className={styles.wrapper}>
       <MetricCard
         title={"Humidity"}
         iconSrc={"/icons/humidity.png"}
