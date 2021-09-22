@@ -1,5 +1,4 @@
-import { unixToLocalTime, timeTo12HourFormat } from "../services/converters";
-import { getTime, getWeekDay, getAMPM } from "../services/utils";
+import { getWeekDay, getTime, getAMPM } from "../services/utils";
 
 import styles from "./DateAndTime.module.css";
 
