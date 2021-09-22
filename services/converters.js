@@ -7,8 +7,7 @@ export const kmToMiles = (km) => (km / 1.609).toFixed(1); //kilometers to miles
 export const timeTo12HourFormat = (time) => {
   //23:43 to 11:43
   const [hours, minutes] = time.split(":");
-  const remain = hours % 12;
-  return `${remain ? remain : 12}:${minutes}`;
+  return `${hours % 12}:${minutes}`;
 };
 
 export const degToCompass = (num) => {
