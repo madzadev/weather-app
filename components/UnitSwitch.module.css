@@ -19,4 +19,8 @@
     display: grid;
     grid-template-columns: 1fr;
   }
+
+  .switch {
+    margin: 10px 0;
+  }
 }
