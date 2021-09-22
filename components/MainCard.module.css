@@ -1,13 +1,13 @@
-.weatherWrapper {
+.wrapper {
   padding: 30px;
 }
 
-.locationTitle {
+.location {
   font-size: 38px;
   margin-bottom: 10px;
 }
 
-.weatherDescription {
+.description {
   font-size: 24px;
   margin-bottom: 20px;
 }

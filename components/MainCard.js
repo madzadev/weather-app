@@ -13,12 +13,12 @@ const MainCard = ({
   weatherData,
 }) => {
   return (
-    <div className={styles.weatherWrapper}>
-      <h1 className={styles.locationTitle}>
+    <div className={styles.wrapper}>
+      <h1 className={styles.location}>
         {city}, {country}
       </h1>
 
-      <p className={styles.weatherDescription}>{description}</p>
+      <p className={styles.description}>{description}</p>
 
       <Image
         alt="weatherIcon"

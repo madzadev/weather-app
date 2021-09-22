@@ -1,4 +1,4 @@
-.statsWrapper {
+.wrapper {
   background-color: rgb(247, 247, 247);
   padding: 30px;
   text-align: right;
@@ -6,7 +6,7 @@
 }
 
 @media only screen and (max-width: 950px) {
-  .statsWrapper {
+  .wrapper {
     border-radius: 0;
   }
 }
