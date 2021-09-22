@@ -1,0 +1,12 @@
+.titleAndSearch {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+@media only screen and (max-width: 520px) {
+  .titleAndSearch {
+    grid-template-columns: 1fr;
+    place-items: center;
+  }
+}

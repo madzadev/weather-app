@@ -1,0 +1,12 @@
+.statsWrapper {
+  background-color: rgb(247, 247, 247);
+  padding: 30px;
+  text-align: right;
+  border-radius: 0 30px 30px 0;
+}
+
+@media only screen and (max-width: 950px) {
+  .statsWrapper {
+    border-radius: 0;
+  }
+}

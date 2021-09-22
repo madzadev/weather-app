@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 
 import MainCard from "../components/MainCard";
+import ContentBox from "../components/ContentBox";
+import Header from "../components/Header";
 import Dates from "../components/Dates";
 import Search from "../components/Search";
 import Metrics from "../components/Metrics";
@@ -52,8 +54,8 @@ const App = () => {
         systemUsed={systemUsed}
         weatherData={weatherData}
       />
-      <div className={styles.statsWrapper}>
-        <div className={styles.titleAndSearch}>
+      <ContentBox>
+        <Header>
           <Dates weatherData={weatherData} systemUsed={systemUsed} />
           <Search
             placeHolder="Search a city..."
@@ -68,10 +70,10 @@ const App = () => {
               e.target.placeholder = "Search a city...";
             }}
           />
-        </div>
+        </Header>
         <Metrics data={weatherData} systemUsed={systemUsed} />
         <SwitchBox onClick={changeSystem} systemUsed={systemUsed} />
-      </div>
+      </ContentBox>
     </div>
   ) : weatherData && weatherData.message ? (
     <ErrorScreen errorMessage="City not found, try again!">
