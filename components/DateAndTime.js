@@ -1,9 +1,9 @@
 import { convertTime, timeToAMPM } from "../services/converters";
 import { isPM } from "../services/utils";
 
-import styles from "./Dates.module.css";
+import styles from "./DateAndTime.module.css";
 
-const Dates = ({ weatherData, systemUsed }) => {
+const DateAndTime = ({ weatherData, systemUsed }) => {
   var weekday = [
     "Sunday",
     "Monday",
@@ -39,4 +39,4 @@ const Dates = ({ weatherData, systemUsed }) => {
   );
 };
 
-export default Dates;
+export default DateAndTime;

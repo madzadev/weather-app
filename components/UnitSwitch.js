@@ -1,6 +1,6 @@
-import styles from "./SwitchBox.module.css";
+import styles from "./UnitSwitch.module.css";
 
-const SwitchBox = ({ onClick, systemUsed }) => {
+const UnitSwitch = ({ onClick, systemUsed }) => {
   return (
     <div className={styles.wrapper}>
       <p
@@ -21,4 +21,4 @@ const SwitchBox = ({ onClick, systemUsed }) => {
   );
 };
 
-export default SwitchBox;
+export default UnitSwitch;

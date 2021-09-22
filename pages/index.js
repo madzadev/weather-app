@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 import MainCard from "../components/MainCard";
 import ContentBox from "../components/ContentBox";
 import Header from "../components/Header";
-import Dates from "../components/Dates";
+import DateAndTime from "../components/DateAndTime";
 import Search from "../components/Search";
 import Metrics from "../components/Metrics";
-import SwitchBox from "../components/SwitchBox";
+import UnitSwitch from "../components/UnitSwitch";
 import LoadingScreen from "../components/LoadingScreen";
 import ErrorScreen from "../components/ErrorScreen";
 
@@ -56,7 +56,7 @@ const App = () => {
       />
       <ContentBox>
         <Header>
-          <Dates weatherData={weatherData} systemUsed={systemUsed} />
+          <DateAndTime weatherData={weatherData} systemUsed={systemUsed} />
           <Search
             placeHolder="Search a city..."
             value={input}
@@ -72,7 +72,7 @@ const App = () => {
           />
         </Header>
         <Metrics data={weatherData} systemUsed={systemUsed} />
-        <SwitchBox onClick={changeSystem} systemUsed={systemUsed} />
+        <UnitSwitch onClick={changeSystem} systemUsed={systemUsed} />
       </ContentBox>
     </div>
   ) : weatherData && weatherData.message ? (
