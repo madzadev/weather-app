@@ -1,5 +1,5 @@
 import { convertTime, timeToAMPM } from "../services/converters";
-import { getWeekDay, isPM } from "../services/utils";
+import { getWeekDay, getTime, isPM } from "../services/utils";
 
 import styles from "./DateAndTime.module.css";
 
