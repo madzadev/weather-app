@@ -5,11 +5,11 @@ import {
   getVisibility,
   getWindSpeed,
 } from "../services/utils";
-import MetricCard from "./MetricCard";
+import MetricCard from "./MetricsCard";
 
-import styles from "./Metrics.module.css";
+import styles from "./MetricsBox.module.css";
 
-const Metrics = ({ data, systemUsed }) => {
+const MetricsBox = ({ data, systemUsed }) => {
   return (
     <div className={styles.statsBox}>
       <MetricCard
@@ -56,4 +56,4 @@ const Metrics = ({ data, systemUsed }) => {
   );
 };
 
-export default Metrics;
+export default MetricsBox;
