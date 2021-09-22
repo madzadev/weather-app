@@ -9,48 +9,60 @@ import MetricCard from "./MetricsCard";
 
 import styles from "./MetricsBox.module.css";
 
-const MetricsBox = ({ data, systemUsed }) => {
+const MetricsBox = ({ weatherData, systemUsed }) => {
   return (
     <div className={styles.wrapper}>
       <MetricCard
         title={"Humidity"}
         iconSrc={"/icons/humidity.png"}
-        metric={data.main.humidity}
+        metric={weatherData.main.humidity}
         unit={"%"}
       />
 
       <MetricCard
         title={"Wind speed"}
         iconSrc={"/icons/wind.png"}
-        metric={getWindSpeed(systemUsed, data.wind.speed)}
+        metric={getWindSpeed(systemUsed, weatherData.wind.speed)}
         unit={systemUsed == "metric" ? "m/s" : "m/h"}
       />
 
       <MetricCard
         title={"Wind direction"}
         iconSrc={"/icons/compass.png"}
-        metric={degToCompass(data.wind.deg)}
+        metric={degToCompass(weatherData.wind.deg)}
       />
 
       <MetricCard
         title={"Visibility"}
         iconSrc={"/icons/binocular.png"}
-        metric={getVisibility(systemUsed, data.visibility)}
+        metric={getVisibility(systemUsed, weatherData.visibility)}
         unit={systemUsed == "metric" ? "km" : "miles"}
       />
 
       <MetricCard
         title={"Sunrise"}
         iconSrc={"/icons/sunrise.png"}
-        metric={getTime(systemUsed, data.sys.sunrise, data.timezone)}
-        unit={getAMPM(systemUsed, data.sys.sunrise, data.timezone)}
+        metric={getTime(
+          systemUsed,
+          weatherData.sys.sunrise,
+          weatherData.timezone
+        )}
+        unit={getAMPM(
+          systemUsed,
+          weatherData.sys.sunrise,
+          weatherData.timezone
+        )}
       />
 
       <MetricCard
         title={"Sunset"}
         iconSrc={"/icons/sunset.png"}
-        metric={getTime(systemUsed, data.sys.sunset, data.timezone)}
-        unit={getAMPM(systemUsed, data.sys.sunset, data.timezone)}
+        metric={getTime(
+          systemUsed,
+          weatherData.sys.sunset,
+          weatherData.timezone
+        )}
+        unit={getAMPM(systemUsed, weatherData.sys.sunset, weatherData.timezone)}
       />
     </div>
   );

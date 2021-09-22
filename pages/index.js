@@ -6,7 +6,6 @@ import Header from "../components/Header";
 import DateAndTime from "../components/DateAndTime";
 import Search from "../components/Search";
 import MetricsBox from "../components/MetricsBox";
-import MetricsCard from "../components/MetricsCard";
 import UnitSwitch from "../components/UnitSwitch";
 import LoadingScreen from "../components/LoadingScreen";
 import ErrorScreen from "../components/ErrorScreen";
@@ -65,7 +64,7 @@ const App = () => {
             }}
           />
         </Header>
-        <MetricsBox data={weatherData} systemUsed={systemUsed} />
+        <MetricsBox weatherData={weatherData} systemUsed={systemUsed} />
         <UnitSwitch onClick={changeSystem} systemUsed={systemUsed} />
       </ContentBox>
     </div>
