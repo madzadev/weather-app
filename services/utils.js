@@ -6,12 +6,9 @@ import {
 } from "./converters";
 
 export const getWindSpeed = (systemUsed, windInMps) =>
-  systemUsed == "metric" ? windInMps : mpsToMph(windInMps); //meters per second to miles per hour
+  systemUsed == "metric" ? windInMps : mpsToMph(windInMps);
 
-export const getVisibility = (
-  systemUsed,
-  visibilityInMeters // visibility in kilometers or in miles
-) =>
+export const getVisibility = (systemUsed, visibilityInMeters) =>
   systemUsed == "metric"
     ? (visibilityInMeters / 1000).toFixed(1)
     : kmToMiles(visibilityInMeters / 1000);
@@ -29,7 +26,6 @@ export const getAMPM = (systemUsed, currentTime, timezone) =>
     : "";
 
 export const getWeekDay = (weatherData) => {
-  //get the name of the week day
   const weekday = [
     "Sunday",
     "Monday",

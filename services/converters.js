@@ -1,17 +1,16 @@
-export const ctoF = (c) => (c * 9) / 5 + 32; //celsius to fahrenheit
+export const ctoF = (c) => (c * 9) / 5 + 32;
 
-export const mpsToMph = (mps) => (mps * 2.236936).toFixed(2); //meters per second - miles per hour
+export const mpsToMph = (mps) => (mps * 2.236936).toFixed(2);
 
-export const kmToMiles = (km) => (km / 1.609).toFixed(1); //kilometers to miles
+export const kmToMiles = (km) => (km / 1.609).toFixed(1);
 
 export const timeTo12HourFormat = (time) => {
-  //23:43 to 11:43
-  const [hours, minutes] = time.split(":");
-  return `${hours % 12}:${minutes}`;
+  let [hours, minutes] = time.split(":");
+  hours %= 12;
+  return `${hours ? hours : 12}:${minutes}`;
 };
 
 export const degToCompass = (num) => {
-  //degree to compass direction
   var val = Math.floor(num / 22.5 + 0.5);
   var arr = [
     "N",
@@ -34,7 +33,6 @@ export const degToCompass = (num) => {
   return arr[val % 16];
 };
 
-// unixToLocalTime (23:31)
 export const unixToLocalTime = (unixSeconds, timezone) => {
   let time = new Date((unixSeconds + timezone) * 1000)
     .toISOString()
