@@ -1,6 +1,6 @@
 import styles from "./UnitSwitch.module.css";
 
-const UnitSwitch = ({ onClick, systemUsed }) => {
+export const UnitSwitch = ({ onClick, systemUsed }) => {
   return (
     <div className={styles.wrapper}>
       <p
@@ -20,5 +20,3 @@ const UnitSwitch = ({ onClick, systemUsed }) => {
     </div>
   );
 };
-
-export default UnitSwitch;

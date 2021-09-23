@@ -1,7 +1,7 @@
 import { getWeekDay, getTime, getAMPM } from "../services/utils";
 import styles from "./DateAndTime.module.css";
 
-const DateAndTime = ({ weatherData, systemUsed }) => {
+export const DateAndTime = ({ weatherData, systemUsed }) => {
   return (
     <h2 className={styles.title}>
       {`${getWeekDay(weatherData)}, ${getTime(
@@ -12,5 +12,3 @@ const DateAndTime = ({ weatherData, systemUsed }) => {
     </h2>
   );
 };
-
-export default DateAndTime;

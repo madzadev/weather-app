@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ctoF } from "../services/converters";
 import styles from "./MainCard.module.css";
 
-const MainCard = ({
+export const MainCard = ({
   city,
   country,
   description,
@@ -38,5 +38,3 @@ const MainCard = ({
     </div>
   );
 };
-
-export default MainCard;

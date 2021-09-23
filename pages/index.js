@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 
-import MainCard from "../components/MainCard";
-import ContentBox from "../components/ContentBox";
-import Header from "../components/Header";
-import DateAndTime from "../components/DateAndTime";
-import Search from "../components/Search";
-import MetricsBox from "../components/MetricsBox";
-import UnitSwitch from "../components/UnitSwitch";
-import LoadingScreen from "../components/LoadingScreen";
-import ErrorScreen from "../components/ErrorScreen";
+import {MainCard} from "../components/MainCard";
+import {ContentBox} from "../components/ContentBox";
+import {Header} from "../components/Header";
+import {DateAndTime} from "../components/DateAndTime";
+import {Search} from "../components/Search";
+import {MetricsBox} from "../components/MetricsBox";
+import {UnitSwitch} from "../components/UnitSwitch";
+import {LoadingScreen} from "../components/LoadingScreen";
+import {ErrorScreen} from "../components/ErrorScreen";
 
 import styles from "../styles/Home.module.css";
 
-const App = () => {
+export const App = () => {
   const [input, setInput] = useState("Riga");
   const [execute, setExecute] = useState(true);
   const [weatherData, setWeatherData] = useState();
