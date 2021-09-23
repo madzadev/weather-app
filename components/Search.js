@@ -1,6 +1,12 @@
 import styles from "./Search.module.css";
 
-export const Search = ({ placeHolder, value, onFocus, onChange, onKeyDown }) => {
+export const Search = ({
+  placeHolder,
+  value,
+  onFocus,
+  onChange,
+  onKeyDown,
+}) => {
   return (
     <input
       className={styles.search}

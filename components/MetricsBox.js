@@ -5,7 +5,7 @@ import {
   getVisibility,
   getWindSpeed,
 } from "../services/utils";
-import {MetricsCard} from "./MetricsCard";
+import { MetricsCard } from "./MetricsCard";
 import styles from "./MetricsBox.module.css";
 
 export const MetricsBox = ({ weatherData, systemUsed }) => {
