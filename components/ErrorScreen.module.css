@@ -1,8 +1,8 @@
 .wrapper {
-  max-width: 260px;
-  text-align: center;
   display: grid;
   place-items: center;
+  max-width: 260px;
+  text-align: center;
 }
 
 .message {

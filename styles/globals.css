@@ -6,21 +6,15 @@
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100vw;
+  min-height: 100vh;
   background-image: radial-gradient(
     circle 993px at 0.5% 50.5%,
     rgba(137, 171, 245, 0.37) 0%,
     rgba(245, 247, 252, 1) 100.2%
   );
   font-family: "Varela Round", sans-serif;
-}
-
-@media only screen and (max-width: 950px) {
-  body {
-    display: block;
-  }
 }

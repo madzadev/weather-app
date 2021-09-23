@@ -1,18 +1,16 @@
 .wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   max-width: 1200px;
-  text-align: center;
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 8px 32px 0 rgba(83, 89, 179, 0.37);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   border-radius: 30px;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
 }
 
 @media only screen and (max-width: 950px) {
   .wrapper {
-    display: grid;
     grid-template-columns: 1fr;
     max-width: 600px;
     margin: 20px auto;

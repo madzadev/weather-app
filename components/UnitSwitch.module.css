@@ -3,9 +3,9 @@
 }
 
 .switch {
+  display: inline;
   margin: 0 10px;
   cursor: pointer;
-  display: inline;
 }
 
 @media only screen and (max-width: 475px) {
