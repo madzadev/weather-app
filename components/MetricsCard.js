@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import styles from "./MetricsCard.module.css";
 
 const MetricsCard = ({ title, iconSrc, metric, unit }) => {
