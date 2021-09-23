@@ -4,15 +4,17 @@ export const UnitSwitch = ({ onClick, systemUsed }) => {
   return (
     <div className={styles.wrapper}>
       <p
-        className={styles.switch}
-        style={{ color: systemUsed == "metric" ? "green" : "black" }}
+        className={`${styles.switch} ${
+          systemUsed == "metric" ? styles.active : styles.inactive
+        }`}
         onClick={onClick}
       >
         Metric System
       </p>
       <p
-        className={styles.switch}
-        style={{ color: systemUsed == "metric" ? "black" : "green" }}
+        className={`${styles.switch} ${
+          systemUsed == "metric" ? styles.inactive : styles.active
+        }`}
         onClick={onClick}
       >
         Imperial System

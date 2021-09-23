@@ -6,7 +6,7 @@ export const MetricsCard = ({ title, iconSrc, metric, unit }) => {
     <div className={styles.wrapper}>
       <p>{title}</p>
       <div className={styles.content}>
-        <Image className={styles.image} src={iconSrc} alt="weatherIcon" />
+        <Image width="100px" height="100px" src={iconSrc} alt="weatherIcon" />
         <div>
           <h1>{metric}</h1>
           <p>{unit}</p>
