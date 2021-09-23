@@ -5,7 +5,7 @@ import styles from "./DateAndTime.module.css";
 const DateAndTime = ({ weatherData, systemUsed }) => {
   return (
     <h2 className={styles.title}>
-      {`${getWeekDay(weatherData)} ${getTime(
+      {`${getWeekDay(weatherData)}, ${getTime(
         systemUsed,
         weatherData.dt,
         weatherData.timezone
