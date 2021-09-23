@@ -17,12 +17,11 @@ export const MainCard = ({
       </h1>
       <p className={styles.description}>{description}</p>
       <Image
-        alt="weatherIcon"
+        className={styles.image}
         src={`/icons/${iconName}.svg`}
-        height="300px"
-        width="300px"
+        alt="weatherIcon"
       />
-      <h1 className={styles.mainTemp}>
+      <h1 className={styles.temperature}>
         {systemUsed == "metric"
           ? Math.round(weatherData.main.temp)
           : Math.round(ctoF(weatherData.main.temp))}

@@ -9,6 +9,11 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.image {
+  height: 100px;
+  width: 100px;
+}
+
 @media only screen and (max-width: 475px) {
   .content {
     grid-template-columns: 1fr 2fr;
