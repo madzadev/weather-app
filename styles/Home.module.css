@@ -7,6 +7,7 @@
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   border-radius: 30px;
+  overflow: hidden;
 }
 
 @media only screen and (max-width: 950px) {
