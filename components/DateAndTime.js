@@ -1,5 +1,4 @@
 import { getWeekDay, getTime, getAMPM } from "../services/utils";
-
 import styles from "./DateAndTime.module.css";
 
 const DateAndTime = ({ weatherData, systemUsed }) => {

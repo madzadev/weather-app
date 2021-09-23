@@ -6,7 +6,6 @@ import {
   getWindSpeed,
 } from "../services/utils";
 import MetricCard from "./MetricsCard";
-
 import styles from "./MetricsBox.module.css";
 
 const MetricsBox = ({ weatherData, systemUsed }) => {
@@ -18,27 +17,23 @@ const MetricsBox = ({ weatherData, systemUsed }) => {
         metric={weatherData.main.humidity}
         unit={"%"}
       />
-
       <MetricCard
         title={"Wind speed"}
         iconSrc={"/icons/wind.png"}
         metric={getWindSpeed(systemUsed, weatherData.wind.speed)}
         unit={systemUsed == "metric" ? "m/s" : "m/h"}
       />
-
       <MetricCard
         title={"Wind direction"}
         iconSrc={"/icons/compass.png"}
         metric={degToCompass(weatherData.wind.deg)}
       />
-
       <MetricCard
         title={"Visibility"}
         iconSrc={"/icons/binocular.png"}
         metric={getVisibility(systemUsed, weatherData.visibility)}
         unit={systemUsed == "metric" ? "km" : "miles"}
       />
-
       <MetricCard
         title={"Sunrise"}
         iconSrc={"/icons/sunrise.png"}
@@ -53,7 +48,6 @@ const MetricsBox = ({ weatherData, systemUsed }) => {
           weatherData.timezone
         )}
       />
-
       <MetricCard
         title={"Sunset"}
         iconSrc={"/icons/sunset.png"}
