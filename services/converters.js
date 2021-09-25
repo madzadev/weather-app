@@ -10,7 +10,7 @@ export const timeTo12HourFormat = (time) => {
 };
 
 export const degToCompass = (num) => {
-  var val = Math.floor(num / 22.5 + 0.5);
+  var val = Math.round(num / 22.5);
   var arr = [
     "N",
     "NNE",
@@ -19,7 +19,7 @@ export const degToCompass = (num) => {
     "E",
     "ESE",
     "SE",
-    "S/SE",
+    "SSE",
     "S",
     "SSW",
     "SW",
