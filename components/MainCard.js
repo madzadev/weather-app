@@ -7,7 +7,7 @@ export const MainCard = ({
   country,
   description,
   iconName,
-  systemUsed,
+  unitSystem,
   weatherData,
 }) => {
   return (
@@ -23,17 +23,17 @@ export const MainCard = ({
         alt="weatherIcon"
       />
       <h1 className={styles.temperature}>
-        {systemUsed == "metric"
+        {unitSystem == "metric"
           ? Math.round(weatherData.main.temp)
           : Math.round(ctoF(weatherData.main.temp))}
-        °{systemUsed == "metric" ? "C" : "F"}
+        °{unitSystem == "metric" ? "C" : "F"}
       </h1>
       <p>
         Feels like{" "}
-        {systemUsed == "metric"
+        {unitSystem == "metric"
           ? Math.round(weatherData.main.feels_like)
           : Math.round(ctoF(weatherData.main.feels_like))}
-        °{systemUsed == "metric" ? "C" : "F"}
+        °{unitSystem == "metric" ? "C" : "F"}
       </p>
     </div>
   );

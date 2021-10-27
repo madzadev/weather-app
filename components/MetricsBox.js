@@ -8,7 +8,7 @@ import {
 import { MetricsCard } from "./MetricsCard";
 import styles from "./MetricsBox.module.css";
 
-export const MetricsBox = ({ weatherData, systemUsed }) => {
+export const MetricsBox = ({ weatherData, unitSystem }) => {
   return (
     <div className={styles.wrapper}>
       <MetricsCard
@@ -20,8 +20,8 @@ export const MetricsBox = ({ weatherData, systemUsed }) => {
       <MetricsCard
         title={"Wind speed"}
         iconSrc={"/icons/wind.png"}
-        metric={getWindSpeed(systemUsed, weatherData.wind.speed)}
-        unit={systemUsed == "metric" ? "m/s" : "m/h"}
+        metric={getWindSpeed(unitSystem, weatherData.wind.speed)}
+        unit={unitSystem == "metric" ? "m/s" : "m/h"}
       />
       <MetricsCard
         title={"Wind direction"}
@@ -31,19 +31,19 @@ export const MetricsBox = ({ weatherData, systemUsed }) => {
       <MetricsCard
         title={"Visibility"}
         iconSrc={"/icons/binocular.png"}
-        metric={getVisibility(systemUsed, weatherData.visibility)}
-        unit={systemUsed == "metric" ? "km" : "miles"}
+        metric={getVisibility(unitSystem, weatherData.visibility)}
+        unit={unitSystem == "metric" ? "km" : "miles"}
       />
       <MetricsCard
         title={"Sunrise"}
         iconSrc={"/icons/sunrise.png"}
         metric={getTime(
-          systemUsed,
+          unitSystem,
           weatherData.sys.sunrise,
           weatherData.timezone
         )}
         unit={getAMPM(
-          systemUsed,
+          unitSystem,
           weatherData.sys.sunrise,
           weatherData.timezone
         )}
@@ -52,11 +52,11 @@ export const MetricsBox = ({ weatherData, systemUsed }) => {
         title={"Sunset"}
         iconSrc={"/icons/sunset.png"}
         metric={getTime(
-          systemUsed,
+          unitSystem,
           weatherData.sys.sunset,
           weatherData.timezone
         )}
-        unit={getAMPM(systemUsed, weatherData.sys.sunset, weatherData.timezone)}
+        unit={getAMPM(unitSystem, weatherData.sys.sunset, weatherData.timezone)}
       />
     </div>
   );
